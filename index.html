@@ -86,12 +86,13 @@
     }
 
     .download-links a {
-      display: block;
+      display: flex;
+      align-items: center;
       padding: 12px;
       margin: 15px auto;
       background-color: #8a2be2;
       border-radius: 50px;
-      text-align: center;
+      text-align: left;
       font-size: 1.1em;
       text-decoration: none;
       color: #fff;
@@ -104,6 +105,15 @@
     .download-links a:hover {
       background-color: #7a1b9b;
       transform: translateY(-3px);
+    }
+
+    /* Style untuk gambar di dalam link */
+    .download-links a img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+      object-fit: cover;
     }
 
     .button-yellow {
@@ -137,21 +147,30 @@
     }
 
     #resourcePackList a {
+      display: flex;
+      align-items: center;
       background-color: #8a2be2;
       padding: 10px;
       border-radius: 50px;
-      display: inline-block;
-      transition: background-color 0.3s ease, transform 0.3s ease;
       text-decoration: none;
       color: #fff;
       width: 90%;
       max-width: 500px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     #resourcePackList a:hover {
       background-color: #7a1b9b;
       transform: translateY(-3px);
+    }
+
+    #resourcePackList a img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+      object-fit: cover;
     }
 
     footer {
@@ -177,6 +196,12 @@
         font-size: 1em;
         padding: 10px;
       }
+      .download-links a img,
+      #resourcePackList a img {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+      }
     }
   </style>
 </head>
@@ -187,6 +212,8 @@
     <div class="download-links" id="downloadLinks">
       <!-- Link statis (contoh) -->
       <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow">
+        <!-- Contoh gambar statis (jika ada), jika tidak bisa dihapus atau dibiarkan kosong -->
+        <!-- <img src="url-image.jpg" alt="Thumbnail"> -->
         Minecraft Patch Version 1.21.51.02
       </a>
       <a href="https://www.mediafire.com/file/1dfl5nh0a7nih9g/11836516-9598-48f8-95d8-447d6ff11f8c.apk/file" target="_blank">
@@ -276,10 +303,10 @@
     }
 
     /* Fungsi untuk mengambil custom links dari file teks di GitHub  
-       Format tiap baris: CODE|Display Text|URL  
+       Format tiap baris: [CODE]|[Display Text]|[URL]|[Optional: Image URL]  
        CODE: "MC" untuk download link utama, "RS" untuk resource pack */
     function fetchCustomLinks() {
-      // Ganti URL berikut dengan URL file teks Anda (pastikan file tersebut bersifat publik)
+      // Gunakan URL raw dari file custom links Anda
       const customLinksUrl = 'https://raw.githubusercontent.com/ScarilyId/mcpatch/main/costumLinks';
       fetch(customLinksUrl)
         .then(response => response.text())
@@ -290,16 +317,20 @@
             if(line) {
               const parts = line.split('|');
               if(parts.length >= 3) {
-                const code = parts[0].trim().toLowerCase();
-                const text = parts[1].trim();
-                const url  = parts[2].trim();
+                // Hapus tanda kurung siku dari setiap bagian
+                const code = parts[0].trim().replace(/[\[\]]/g, '').toLowerCase();
+                const text = parts[1].trim().replace(/[\[\]]/g, '');
+                const url  = parts[2].trim().replace(/[\[\]]/g, '');
+                // Jika ada parameter keempat, gunakan sebagai image URL
+                const imgUrl = (parts.length >= 4) ? parts[3].trim().replace(/[\[\]]/g, '') : null;
+                
                 if(code === 'mc') {
-                  addLinkToSection('downloadLinks', text, url);
+                  addLinkToSection('downloadLinks', text, url, imgUrl);
                 } else if(code === 'rs') {
-                  addLinkToSection('resourcePackFiles', text, url);
+                  addLinkToSection('resourcePackFiles', text, url, imgUrl);
                 } else {
                   // Jika kode tidak dikenal, tambahkan ke custom section
-                  addLinkToSection('customLinks', text, url);
+                  addLinkToSection('customLinks', text, url, imgUrl);
                 }
               }
             }
@@ -308,38 +339,34 @@
         .catch(error => console.error('Error fetching custom links:', error));
     }
 
-    // Fungsi untuk menambahkan link ke section tertentu
-    // sectionId: id elemen target (bisa "downloadLinks", "resourcePackFiles", atau "customLinks")
-    function addLinkToSection(sectionId, text, url) {
+    /**
+     * Fungsi untuk menambahkan link ke section tertentu.
+     * sectionId: id elemen target ("downloadLinks", "resourcePackFiles", atau "customLinks")
+     * text: teks tampilan link
+     * url: URL link
+     * imgUrl (optional): URL gambar untuk ditampilkan di depan teks link
+     */
+    function addLinkToSection(sectionId, text, url, imgUrl) {
       if(sectionId === 'downloadLinks' || sectionId === 'customLinks') {
-        // Jika sectionId adalah downloadLinks atau customLinks, kita buat elemen <a>
-        // Jika sectionId customLinks, pastikan container tersebut sudah ada
         const container = document.getElementById(sectionId);
         const a = document.createElement('a');
         a.href = url;
         a.target = '_blank';
-        a.textContent = text;
-        a.style.display = 'block';
-        a.style.padding = '12px';
-        a.style.margin = '15px auto';
-        a.style.backgroundColor = '#8a2be2';
-        a.style.borderRadius = '50px';
-        a.style.textAlign = 'center';
-        a.style.fontSize = '1.1em';
-        a.style.textDecoration = 'none';
-        a.style.color = '#fff';
-        a.style.width = '90%';
-        a.style.maxWidth = '500px';
-        a.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
-        a.style.transition = 'background-color 0.3s ease, transform 0.3s ease';
-        a.addEventListener('mouseover', function() {
-          a.style.backgroundColor = '#7a1b9b';
-          a.style.transform = 'translateY(-3px)';
-        });
-        a.addEventListener('mouseout', function() {
-          a.style.backgroundColor = '#8a2be2';
-          a.style.transform = 'translateY(0)';
-        });
+        
+        // Jika ada image, buat elemen <img> dan tambahkan ke dalam <a>
+        if (imgUrl) {
+          const img = document.createElement('img');
+          img.src = imgUrl;
+          img.alt = text;
+          a.appendChild(img);
+        }
+        
+        // Buat elemen span untuk teks link agar tampilan lebih terstruktur
+        const span = document.createElement('span');
+        span.textContent = text;
+        a.appendChild(span);
+        
+        // Terapkan style (sudah didefinisikan di CSS)
         container.appendChild(a);
       } else if(sectionId === 'resourcePackFiles') {
         // Untuk resourcePackFiles, container berupa <ul>
@@ -348,7 +375,18 @@
         const a = document.createElement('a');
         a.href = url;
         a.target = '_blank';
-        a.textContent = text;
+        
+        if (imgUrl) {
+          const img = document.createElement('img');
+          img.src = imgUrl;
+          img.alt = text;
+          a.appendChild(img);
+        }
+        
+        const span = document.createElement('span');
+        span.textContent = text;
+        a.appendChild(span);
+        
         li.appendChild(a);
         container.appendChild(li);
       }
