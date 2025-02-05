@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Minecraft Patch</title>
   <style>
     body {
       margin: 0;
       padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background: linear-gradient(135deg, #4e1f5e, #0f0f0f);
       font-family: Arial, sans-serif;
+      overflow: hidden;
     }
     .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
       text-align: center;
       color: white;
+      /* Animasi masuk */
+      opacity: 0;
+      transform: scale(0.5);
+      animation: fadeIn 2s forwards;
     }
     h1 {
       font-size: 3em;
@@ -44,6 +50,10 @@
       text-decoration: none;
       color: white;
     }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.5); }
+      100% { opacity: 1; transform: scale(1); }
+    }
     @keyframes slideIn {
       0% { transform: translateY(-50px); }
       100% { transform: translateY(0); }
@@ -56,6 +66,7 @@
       display: none;
       opacity: 0;
       transition: opacity 0.5s ease;
+      margin-bottom: 20px;
     }
     .download-links.active {
       display: block;
@@ -64,13 +75,15 @@
     .download-links a {
       display: block;
       padding: 10px;
-      margin: 10px;
+      margin: 10px auto;
       background-color: #8a2be2;
       border-radius: 5px;
       text-align: center;
       font-size: 1.2em;
       text-decoration: none;
       color: white;
+      width: 90%;
+      max-width: 500px;
       transition: background-color 0.3s ease;
     }
     .download-links a:hover {
@@ -83,9 +96,9 @@
     .button-yellow:hover {
       background-color: blue;
     }
-    /* Styling tambahan untuk daftar Resource Pack dari GitHub */
+    /* Styling untuk Resource Pack List */
     #resourcePackList {
-      margin-top: 40px;
+      margin-top: 30px;
     }
     #resourcePackList h2 {
       margin-bottom: 20px;
@@ -103,6 +116,10 @@
       border-radius: 5px;
       display: inline-block;
       transition: background-color 0.3s ease;
+      text-decoration: none;
+      color: white;
+      width: 90%;
+      max-width: 500px;
     }
     #resourcePackList a:hover {
       background-color: #7a1b9b;
@@ -114,27 +131,51 @@
     <h1>Minecraft Patch</h1>
     <button class="button" onclick="showLinks()">Klik untuk Lihat Link Download</button>
     <div class="download-links" id="downloadLinks">
-      <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow">Minecraft Patch Version 1.21.51.02</a>
-      <a href="https://www.mediafire.com/file/1dfl5nh0a7nih9g/11836516-9598-48f8-95d8-447d6ff11f8c.apk/file" target="_blank">Minecraft Patch Version 1.21.50.07</a>
-      <a href="https://www.mediafire.com/file/l56hcq48m80ufra/b85f9eda-fc99-4513-9609-03782781cf36.apk/file" target="_blank">Minecraft beta Patch Version 1.21.50.28</a>
-      <a href="https://drive.usercontent.google.com/download?id=1F4KQsebPtAvN4YdkwXhGQCY5JwAFMzPC&export=download&authuser=0" target="_blank" class="button-yellow">Minecraft Patch Version 1.21.44.01</a>
-      <a href="https://github.com/mcpebd/mcpebd.github.io/releases/download/dumps/vanilla_music_1.21.44.zip.mcpack" target="_blank" class="button-yellow">Minecraft Music 1.21++</a>
+      <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow">
+        Minecraft Patch Version 1.21.51.02
+      </a>
+      <a href="https://www.mediafire.com/file/1dfl5nh0a7nih9g/11836516-9598-48f8-95d8-447d6ff11f8c.apk/file" target="_blank">
+        Minecraft Patch Version 1.21.50.07
+      </a>
+      <a href="https://www.mediafire.com/file/l56hcq48m80ufra/b85f9eda-fc99-4513-9609-03782781cf36.apk/file" target="_blank">
+        Minecraft beta Patch Version 1.21.50.28
+      </a>
+      <a href="https://drive.usercontent.google.com/download?id=1F4KQsebPtAvN4YdkwXhGQCY5JwAFMzPC&export=download&authuser=0" target="_blank" class="button-yellow">
+        Minecraft Patch Version 1.21.44.01
+      </a>
+      <a href="https://github.com/mcpebd/mcpebd.github.io/releases/download/dumps/vanilla_music_1.21.44.zip.mcpack" target="_blank" class="button-yellow">
+        Minecraft Music 1.21++
+      </a>
       <h3>|Source Yss Group|</h3>
       <h2>Resource pack and behavior pack</h2>
-      <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow">Night Vision 1.21.51 mcpatch only</a>
-      <a href="https://drive.google.com/file/d/1N7C4PHGWUXv3unmkahWpKzYftqXcHgR-/view?usp=drivesdk" target="_blank" class="button-yellow">Fast loading Dimension nether and end 1.21.51</a>
-      <a href="https://drive.usercontent.google.com/u/0/uc?id=1qLmK8eD7GTBZ9kbjqJM_NmpygY5TX8XF&export=download" target="_blank" class="button-yellow">Night vision Mcori and mcpatch 1.21.51</a>
-      <a href="https://drive.usercontent.google.com/u/0/uc?id=1QAVhsVnXKe5xM-DeaUdvXghiqpCHxnmw&export=download" target="_blank" class="button-yellow">MiniMap resource pack "khusus hp yg kuat saja"</a>
-      <a href="https://drive.google.com/file/d/1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD/view?usp=drivesdk" target="_blank" class="button-yellow">Player Esp 1.21+</a>
+      <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow">
+        Night Vision 1.21.51 mcpatch only
+      </a>
+      <a href="https://drive.google.com/file/d/1N7C4PHGWUXv3unmkahWpKzYftqXcHgR-/view?usp=drivesdk" target="_blank" class="button-yellow">
+        Fast loading Dimension nether and end 1.21.51
+      </a>
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1qLmK8eD7GTBZ9kbjqJM_NmpygY5TX8XF&export=download" target="_blank" class="button-yellow">
+        Night vision Mcori and mcpatch 1.21.51
+      </a>
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1QAVhsVnXKe5xM-DeaUdvXghiqpCHxnmw&export=download" target="_blank" class="button-yellow">
+        MiniMap resource pack "khusus hp yg kuat saja"
+      </a>
+      <a href="https://drive.google.com/file/d/1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD/view?usp=drivesdk" target="_blank" class="button-yellow">
+        Player Esp 1.21+
+      </a>
     </div>
-    <h3><a href="https://bit.ly/ScWhatsApp" target="_blank" class="button-yellow">WhatsApp chennel click</a></h3>
+    <h3>
+      <a href="https://bit.ly/ScWhatsApp" target="_blank" class="button-yellow">
+        WhatsApp chennel click
+      </a>
+    </h3>
     <h2>Create Website @MohFahmiMc 2024</h2>
 
-    <!-- Bagian untuk menampilkan daftar file Resource Pack dari GitHub -->
+    <!-- Bagian untuk menampilkan file Resource Pack dari GitHub -->
     <div id="resourcePackList">
-      <h2>Resource Pack Files</h2>
+      <h2>Resource Pack Files (.mcpack)</h2>
       <ul id="resourcePackFiles">
-        <!-- File akan muncul secara otomatis di sini -->
+        <!-- File dengan ekstensi .mcpack akan muncul di sini -->
       </ul>
     </div>
   </div>
@@ -145,22 +186,25 @@
       links.classList.add('active');
     }
 
-    // Fungsi untuk mengambil daftar file Resource Pack dari repository GitHub
+    // Fungsi untuk mengambil file Resource Pack dari GitHub repository "ScarilyId/mcpatch" (branch main)
     function fetchResourcePackFiles() {
-      // Ganti dengan detail repository GitHub milikmu
-      const githubUsername = 'ScarilyId';     // Ganti dengan username GitHub
-      const repository     = 'mcpatch';     // Ganti dengan nama repository
-      const folderPath     = 'upload'; // Ganti dengan path folder yang sesuai
-
-      const apiUrl = `https://api.github.com/repos/${githubUsername}/${repository}/contents/${folderPath}`;
-
+      const githubUsername = 'ScarilyId';
+      const repository     = 'mcpatch';
+      // Jika file-file ada di root branch main, kita biarkan folderPath kosong
+      const folderPath     = '';  
+      
+      // Jika folderPath kosong, tidak perlu menambahkan slash di akhir URL
+      const apiUrl = folderPath 
+        ? `https://api.github.com/repos/${githubUsername}/${repository}/contents/${folderPath}`
+        : `https://api.github.com/repos/${githubUsername}/${repository}/contents`;
+      
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
           const fileList = document.getElementById('resourcePackFiles');
           data.forEach(file => {
-            // Pastikan hanya mengambil file, bukan folder
-            if (file.type === 'file') {
+            // Hanya tampilkan file yang berekstensi .mcpack
+            if (file.type === 'file' && file.name.toLowerCase().endsWith('.mcpack')) {
               const listItem = document.createElement('li');
               const link = document.createElement('a');
               link.href = file.download_url;
@@ -176,7 +220,6 @@
         });
     }
 
-    // Panggil fungsi untuk mengambil file ketika halaman sudah dimuat
     window.addEventListener('load', fetchResourcePackFiles);
   </script>
 </body>
