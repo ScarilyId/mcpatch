@@ -8,30 +8,24 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background: linear-gradient(135deg, #4e1f5e, #0f0f0f);
       font-family: Arial, sans-serif;
-      overflow: hidden;
     }
     .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
       text-align: center;
       color: white;
-      /* Animasi masuk */
-      opacity: 0;
-      transform: scale(0.5);
-      animation: fadeIn 2s forwards;
     }
     h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       margin-bottom: 20px;
       animation: slideIn 1s forwards;
     }
     .button {
       padding: 15px 30px;
-      font-size: 1.5em;
+      font-size: 1.2em;
       color: white;
       background-color: #6a0dad;
       border: none;
@@ -49,10 +43,6 @@
     a {
       text-decoration: none;
       color: white;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: scale(0.5); }
-      100% { opacity: 1; transform: scale(1); }
     }
     @keyframes slideIn {
       0% { transform: translateY(-50px); }
@@ -124,6 +114,21 @@
     #resourcePackList a:hover {
       background-color: #7a1b9b;
     }
+    /* Responsive tweaks untuk mobile */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      .button {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+      .download-links a,
+      #resourcePackList a {
+        font-size: 1em;
+        padding: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -190,20 +195,17 @@
     function fetchResourcePackFiles() {
       const githubUsername = 'ScarilyId';
       const repository     = 'mcpatch';
-      // Jika file-file ada di root branch main, kita biarkan folderPath kosong
-      const folderPath     = '';  
-      
-      // Jika folderPath kosong, tidak perlu menambahkan slash di akhir URL
+      const folderPath     = ''; // File ada di root branch main
       const apiUrl = folderPath 
         ? `https://api.github.com/repos/${githubUsername}/${repository}/contents/${folderPath}`
         : `https://api.github.com/repos/${githubUsername}/${repository}/contents`;
-      
+
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
           const fileList = document.getElementById('resourcePackFiles');
           data.forEach(file => {
-            // Hanya tampilkan file yang berekstensi .mcpack
+            // Tampilkan file jika berekstensi .mcpack
             if (file.type === 'file' && file.name.toLowerCase().endsWith('.mcpack')) {
               const listItem = document.createElement('li');
               const link = document.createElement('a');
