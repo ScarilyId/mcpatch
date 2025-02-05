@@ -5,128 +5,177 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Minecraft Patch</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #4e1f5e, #0f0f0f);
-      font-family: Arial, sans-serif;
+    /* Animasi background gradient yang bergerak */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: center;
-      color: white;
+
+    /* Animasi slide untuk header */
+    @keyframes slideInDown {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      animation: slideIn 1s forwards;
-    }
-    .button {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      color: white;
-      background-color: #6a0dad;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: buttonAppear 1s 1s forwards;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    .button:hover {
-      background-color: #9b30b1;
-      transform: translateY(0);
-    }
-    a {
-      text-decoration: none;
-      color: white;
-    }
-    @keyframes slideIn {
-      0% { transform: translateY(-50px); }
-      100% { transform: translateY(0); }
-    }
-    @keyframes buttonAppear {
+
+    /* Animasi untuk elemen fade in dari bawah */
+    @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
+    /* Reset dan background */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #4e1f5e, #0f0f0f);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: slideInDown 1s ease-out;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: #fff;
+      background-color: #6a0dad;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s 0.5s forwards;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:hover {
+      background-color: #9b30b1;
+      transform: scale(1.05);
+    }
+
     .download-links {
       display: none;
       opacity: 0;
-      transition: opacity 0.5s ease;
-      margin-bottom: 20px;
+      transition: opacity 0.7s ease;
     }
+
     .download-links.active {
       display: block;
       opacity: 1;
     }
+
     .download-links a {
       display: block;
-      padding: 10px;
-      margin: 10px auto;
+      padding: 12px;
+      margin: 15px auto;
       background-color: #8a2be2;
-      border-radius: 5px;
+      border-radius: 50px;
       text-align: center;
-      font-size: 1.2em;
+      font-size: 1.1em;
       text-decoration: none;
-      color: white;
+      color: #fff;
       width: 90%;
       max-width: 500px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
+
     .download-links a:hover {
       background-color: #7a1b9b;
+      transform: translateY(-3px);
     }
+
     .button-yellow {
       background-color: #ffcc00;
-      color: black;
+      color: #333;
     }
+
     .button-yellow:hover {
-      background-color: blue;
+      background-color: #e6b800;
     }
-    /* Styling untuk Resource Pack List */
+
+    /* Section untuk Resource Pack */
     #resourcePackList {
-      margin-top: 30px;
+      margin-top: 40px;
+      animation: fadeInUp 1s 1s forwards;
     }
-    #resourcePackList h2 {
+
+    #resourcePackList h3 {
       margin-bottom: 20px;
+      font-size: 1.8em;
+      text-decoration: underline;
     }
+
     #resourcePackList ul {
       list-style: none;
       padding: 0;
     }
+
     #resourcePackList li {
-      margin: 10px 0;
+      margin: 12px 0;
     }
+
     #resourcePackList a {
       background-color: #8a2be2;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 50px;
       display: inline-block;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
       text-decoration: none;
-      color: white;
+      color: #fff;
       width: 90%;
       max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
+
     #resourcePackList a:hover {
       background-color: #7a1b9b;
+      transform: translateY(-3px);
     }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      animation: fadeInUp 1s 1.5s forwards;
+    }
+
     /* Responsive tweaks untuk mobile */
     @media (max-width: 600px) {
       h1 {
-        font-size: 2em;
+        font-size: 2.2em;
       }
       .button {
         font-size: 1em;
-        padding: 10px 20px;
+        padding: 12px 25px;
       }
       .download-links a,
       #resourcePackList a {
         font-size: 1em;
-        padding: 8px;
+        padding: 10px;
       }
     }
   </style>
@@ -136,6 +185,7 @@
     <h1>Minecraft Patch</h1>
     <button class="button" onclick="showLinks()">Klik untuk Lihat Link Download</button>
     <div class="download-links" id="downloadLinks">
+      <!-- Link statis (contoh) -->
       <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow">
         Minecraft Patch Version 1.21.51.02
       </a>
@@ -151,43 +201,47 @@
       <a href="https://github.com/mcpebd/mcpebd.github.io/releases/download/dumps/vanilla_music_1.21.44.zip.mcpack" target="_blank" class="button-yellow">
         Minecraft Music 1.21++
       </a>
-      <h5>|Source Yss Group|</h5>
-      <h4>Resource pack and behavior pack</h4>
+      <h5 style="margin-top:20px;">|Source Yss Group|</h5>
+      <h4 style="margin-bottom:20px;">Resource Pack and Behavior Pack</h4>
       <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow">
         Night Vision 1.21.51 mcpatch only
       </a>
       <a href="https://drive.google.com/file/d/1N7C4PHGWUXv3unmkahWpKzYftqXcHgR-/view?usp=drivesdk" target="_blank" class="button-yellow">
-        Fast loading Dimension nether and end 1.21.51
+        Fast Loading Dimension Nether and End 1.21.51
       </a>
       <a href="https://drive.usercontent.google.com/u/0/uc?id=1qLmK8eD7GTBZ9kbjqJM_NmpygY5TX8XF&export=download" target="_blank" class="button-yellow">
-        Night vision Mcori and mcpatch 1.21.51
+        Night Vision Mcori and Mcpatch 1.21.51
       </a>
       <a href="https://drive.usercontent.google.com/u/0/uc?id=1QAVhsVnXKe5xM-DeaUdvXghiqpCHxnmw&export=download" target="_blank" class="button-yellow">
-        MiniMap resource pack "khusus hp yg kuat saja"
+        MiniMap Resource Pack "khusus hp yg kuat saja"
       </a>
       <a href="https://drive.google.com/file/d/1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD/view?usp=drivesdk" target="_blank" class="button-yellow">
         Player Esp 1.21+
       </a>
-    <!-- Bagian untuk menampilkan file Resource Pack dari GitHub -->
+      <!-- Bagian untuk link yang diambil dari file teks custom di GitHub -->
+      <div id="customLinks"></div>
+      <h4 style="margin-top:30px;">
+        <a href="https://bit.ly/ScWhatsApp" target="_blank" class="button" style="background-color:#3498db;">WhatsApp Update Website</a>
+      </h4>
+    </div>
+    <!-- Bagian Resource Pack dari API GitHub (file .mcpack) -->
     <div id="resourcePackList">
-      <h3></h3>
+      <h3>Resource Pack Files (.mcpack)</h3>
       <ul id="resourcePackFiles">
         <!-- File dengan ekstensi .mcpack akan muncul di sini -->
-    </div>
-    <h4>
-      <a href="https://bit.ly/ScWhatsApp" target="_blank" class="button-blue">WhatsApp update Website silahkan pencet 
-      </a>
-    </h4>
-    <h2></h2>
-      <h4>Create website by @MohFahmiMc</h4>
       </ul>
     </div>
+    <footer>
+      <p>Create website by @MohFahmiMc</p>
+    </footer>
   </div>
 
   <script>
+    // Fungsi untuk menampilkan bagian download links
     function showLinks() {
       const links = document.getElementById('downloadLinks');
       links.classList.add('active');
+      links.scrollIntoView({ behavior: 'smooth' });
     }
 
     // Fungsi untuk mengambil file Resource Pack dari GitHub repository "ScarilyId/mcpatch" (branch main)
@@ -221,7 +275,89 @@
         });
     }
 
-    window.addEventListener('load', fetchResourcePackFiles);
+    /* Fungsi untuk mengambil custom links dari file teks di GitHub  
+       Format tiap baris: CODE|Display Text|URL  
+       CODE: "MC" untuk download link utama, "RS" untuk resource pack */
+    function fetchCustomLinks() {
+      // Ganti URL berikut dengan URL file teks Anda (pastikan file tersebut bersifat publik)
+      const customLinksUrl = 'https://raw.githubusercontent.com/YourUsername/YourRepo/main/links.txt';
+      fetch(customLinksUrl)
+        .then(response => response.text())
+        .then(data => {
+          const lines = data.split('\n');
+          lines.forEach(line => {
+            line = line.trim();
+            if(line) {
+              const parts = line.split('|');
+              if(parts.length >= 3) {
+                const code = parts[0].trim().toLowerCase();
+                const text = parts[1].trim();
+                const url  = parts[2].trim();
+                if(code === 'mc') {
+                  addLinkToSection('downloadLinks', text, url);
+                } else if(code === 'rs') {
+                  addLinkToSection('resourcePackFiles', text, url);
+                } else {
+                  // Jika kode tidak dikenal, tambahkan ke custom section
+                  addLinkToSection('customLinks', text, url);
+                }
+              }
+            }
+          });
+        })
+        .catch(error => console.error('Error fetching custom links:', error));
+    }
+
+    // Fungsi untuk menambahkan link ke section tertentu
+    // sectionId: id elemen target (bisa "downloadLinks", "resourcePackFiles", atau "customLinks")
+    function addLinkToSection(sectionId, text, url) {
+      if(sectionId === 'downloadLinks' || sectionId === 'customLinks') {
+        // Jika sectionId adalah downloadLinks atau customLinks, kita buat elemen <a>
+        // Jika sectionId customLinks, pastikan container tersebut sudah ada
+        const container = document.getElementById(sectionId);
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.textContent = text;
+        a.style.display = 'block';
+        a.style.padding = '12px';
+        a.style.margin = '15px auto';
+        a.style.backgroundColor = '#8a2be2';
+        a.style.borderRadius = '50px';
+        a.style.textAlign = 'center';
+        a.style.fontSize = '1.1em';
+        a.style.textDecoration = 'none';
+        a.style.color = '#fff';
+        a.style.width = '90%';
+        a.style.maxWidth = '500px';
+        a.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+        a.style.transition = 'background-color 0.3s ease, transform 0.3s ease';
+        a.addEventListener('mouseover', function() {
+          a.style.backgroundColor = '#7a1b9b';
+          a.style.transform = 'translateY(-3px)';
+        });
+        a.addEventListener('mouseout', function() {
+          a.style.backgroundColor = '#8a2be2';
+          a.style.transform = 'translateY(0)';
+        });
+        container.appendChild(a);
+      } else if(sectionId === 'resourcePackFiles') {
+        // Untuk resourcePackFiles, container berupa <ul>
+        const container = document.getElementById(sectionId);
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.textContent = text;
+        li.appendChild(a);
+        container.appendChild(li);
+      }
+    }
+
+    window.addEventListener('load', function() {
+      fetchResourcePackFiles();
+      fetchCustomLinks();
+    });
   </script>
 </body>
 </html>
