@@ -41,7 +41,6 @@
       color: #fff;
       overflow-x: hidden;
     }
-
     .container {
       max-width: 1000px;
       margin: 0 auto;
@@ -79,12 +78,10 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       will-change: transform, opacity;
     }
-
     .button:hover {
       background-color: #9b30b1;
       transform: scale(1.05);
     }
-
     /* Tombol salin link dengan warna berbeda */
     .button.copy-button {
       background-color: #ff4500;
@@ -206,7 +203,7 @@
   <div class="container">
     <!-- Logo Website -->
     <div class="logo-container">
-      <img src="https://cdn.discordapp.com/attachments/1150668508011700354/1338401733788831755/1739170174781.png?ex=67aaf33f&is=67a9a1bf&hm=4c696062974e82f5285bbc24144a06efe1c7e39c2ed26a6dd66a561845209085&" alt="" class="logo">
+      <img src="https://cdn.discordapp.com/attachments/1150668508011700354/1338401733788831755/1739170174781.png?ex=67aaf33f&is=67a9a1bf&hm=4c696062974e82f5285bbc24144a06efe1c7e39c2ed26a6dd66a561845209085&" alt="Logo Website" class="logo">
     </div>
     <h1>Minecraft Patch</h1>
     <!-- Tombol Tampilkan Link Download dan Tombol Salin Link -->
@@ -214,7 +211,10 @@
     <button class="button copy-button" onclick="copyScpatchLink()">Salin Link Scpatch</button>
     
     <div class="download-links" id="downloadLinks">
-      <!-- Link statis (contoh) -->
+      <!-- Custom MC Links (akan tampil di paling atas bagian Minecraft) -->
+      <div id="customMCLinks"></div>
+      
+      <!-- Link Minecraft yang sudah ada -->
       <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Minecraft Patch Version 1.21.51.02
       </a>
@@ -230,8 +230,14 @@
       <a href="https://github.com/mcpebd/mcpebd.github.io/releases/download/dumps/vanilla_music_1.21.44.zip.mcpack" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Minecraft Music 1.21++
       </a>
+      
       <h5 style="margin-top:20px;">|Source Yss Group|</h5>
       <h4 style="margin-bottom:20px;">Resource Pack and Behavior Pack</h4>
+      
+      <!-- Custom RS Links (akan tampil di paling atas bagian Resource Pack) -->
+      <div id="customRSLinks"></div>
+      
+      <!-- Link Resource Pack yang sudah ada -->
       <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Night Vision 1.21.51 mcpatch only
       </a>
@@ -247,8 +253,6 @@
       <a href="https://drive.usercontent.google.com/u/0/uc?id=1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Player Esp 1.21+
       </a>
-      <!-- Bagian untuk link custom dari file teks di GitHub dan file .mcpack dari GitHub API -->
-      <div id="customLinks"></div>
     </div>
     
     <!-- Link WhatsApp di bagian bawah -->
@@ -285,8 +289,7 @@
         });
     }
 
-    // Fungsi untuk mengambil file .mcpack dari GitHub repository "ScarilyId/mcpatch" (branch main)
-    // dan menampilkannya di container downloadLinks (bersama link download lainnya)
+    // Fungsi untuk mengambil file .mcpack dari GitHub repository "ScarilyId/File" (branch main)
     function fetchResourcePackFiles() {
       const githubUsername = 'ScarilyId';
       const repository     = 'File';
@@ -317,11 +320,9 @@
         });
     }
 
-    /* Fungsi untuk mengambil custom links dari file teks di GitHub  
-       Format tiap baris: [CODE]|[Display Text]|[URL]|[Optional: Image URL]  
-       CODE: "MC" untuk download link utama, "RS" untuk resource pack */
+    // Fungsi untuk mengambil custom links dari file teks di GitHub  
+    // Format tiap baris: [CODE]|[Display Text]|[URL]|[Optional: Image URL]
     function fetchCustomLinks() {
-      // Gunakan URL raw dari file custom links Anda
       const customLinksUrl = 'https://raw.githubusercontent.com/ScarilyId/mcpatch/main/costumLinks';
       fetch(customLinksUrl)
         .then(response => response.text())
@@ -338,11 +339,14 @@
                 // Jika ada parameter keempat, gunakan sebagai image URL
                 const imgUrl = (parts.length >= 4) ? parts[3].trim().replace(/[\[\]]/g, '') : null;
                 
-                // Untuk kode "mc" dan "rs" masukkan ke container downloadLinks
-                if (code === 'mc' || code === 'rs') {
-                  addLinkToSection('downloadLinks', text, url, imgUrl);
+                if (code === 'mc') {
+                  // Tambahkan custom link MC di wadah khusus (prepending agar tampil di atas)
+                  addLinkToSection('customMCLinks', text, url, imgUrl);
+                } else if (code === 'rs') {
+                  // Tambahkan custom link RS di wadah khusus (prepending agar tampil di atas)
+                  addLinkToSection('customRSLinks', text, url, imgUrl);
                 } else {
-                  addLinkToSection('customLinks', text, url, imgUrl);
+                  // Jika ada kode lain, Anda dapat menanganinya sesuai keinginan.
                 }
               }
             }
@@ -352,11 +356,9 @@
     }
 
     /**
-     * Fungsi untuk menambahkan link ke section tertentu.
-     * sectionId: id elemen target ("downloadLinks" atau "customLinks")
-     * text: teks tampilan link
-     * url: URL link
-     * imgUrl (optional): URL gambar untuk ditampilkan di depan teks link
+     * Fungsi untuk menambahkan link ke wadah tertentu.
+     * Jika wadah adalah customMCLinks atau customRSLinks, link baru akan di-*prepend*
+     * sehingga selalu tampil di paling atas.
      */
     function addLinkToSection(sectionId, text, url, imgUrl) {
       const container = document.getElementById(sectionId);
@@ -375,7 +377,9 @@
       const span = document.createElement('span');
       span.textContent = text;
       a.appendChild(span);
-      container.appendChild(a);
+      
+      // Prepend link baru agar tampil di atas
+      container.prepend(a);
     }
 
     window.addEventListener('load', function() {
