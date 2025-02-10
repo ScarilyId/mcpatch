@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Minecraft Patch</title>
+  <meta name="description" content="Unduh patch terbaru Minecraft dengan berbagai fitur menarik." />
+  <meta name="keywords" content="Minecraft, Patch, Download, MCPE, Update" />
+  <meta name="author" content="MohFahmiMc" />
   <style>
     /* Animasi background gradient yang bergerak */
     @keyframes gradientAnimation {
@@ -46,6 +49,13 @@
       text-align: center;
     }
 
+    /* Style logo */
+    .logo {
+      max-width: 150px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
     h1 {
       font-size: 3em;
       margin-bottom: 20px;
@@ -67,6 +77,7 @@
       animation: fadeInUp 1s 0.5s forwards;
       transition: transform 0.3s ease, background-color 0.3s ease;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      will-change: transform, opacity;
     }
 
     .button:hover {
@@ -74,17 +85,24 @@
       transform: scale(1.05);
     }
 
+    /* Tombol salin link dengan warna berbeda */
+    .button.copy-button {
+      background-color: #ff4500;
+      margin-left: 10px;
+    }
+    .button.copy-button:hover {
+      background-color: #ff6347;
+    }
+
     .download-links {
       display: none;
       opacity: 0;
       transition: opacity 0.7s ease;
     }
-
     .download-links.active {
       display: block;
       opacity: 1;
     }
-
     .download-links a {
       display: flex;
       align-items: center;
@@ -100,13 +118,12 @@
       max-width: 500px;
       transition: background-color 0.3s ease, transform 0.3s ease;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      will-change: transform, opacity;
     }
-
     .download-links a:hover {
       background-color: #7a1b9b;
       transform: translateY(-3px);
     }
-
     /* Style untuk gambar di dalam link */
     .download-links a img {
       width: 40px;
@@ -115,7 +132,6 @@
       border-radius: 5px;
       object-fit: cover;
     }
-
     /* Style khusus untuk WhatsApp link */
     #whatsappLink a {
       display: inline-flex;
@@ -129,6 +145,7 @@
       text-decoration: none;
       transition: transform 0.3s ease, background-color 0.3s ease;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      will-change: transform, opacity;
     }
     #whatsappLink a:hover {
       background-color: #1ebe5d;
@@ -140,16 +157,13 @@
       margin-right: 10px;
       object-fit: cover;
     }
-
     .button-yellow {
       background-color: #ffcc00;
       color: #333;
     }
-
     .button-yellow:hover {
       background-color: #e6b800;
     }
-
     footer {
       margin-top: 40px;
       padding: 20px;
@@ -158,7 +172,6 @@
       border-top: 1px solid rgba(255,255,255,0.2);
       animation: fadeInUp 1s 1.5s forwards;
     }
-
     /* Responsive tweaks untuk mobile */
     @media (max-width: 600px) {
       h1 {
@@ -191,40 +204,47 @@
 </head>
 <body>
   <div class="container">
+    <!-- Logo Website -->
+    <div class="logo-container">
+      <img src="https://images.app.goo.gl/TLm8YQdKosRaCQUK9" alt="Logo Website" class="logo">
+    </div>
     <h1>Minecraft Patch</h1>
+    <!-- Tombol Tampilkan Link Download dan Tombol Salin Link -->
     <button class="button" onclick="showLinks()">Klik untuk Lihat Link Download</button>
+    <button class="button copy-button" onclick="copyScpatchLink()">Salin Link Scpatch</button>
+    
     <div class="download-links" id="downloadLinks">
       <!-- Link statis (contoh) -->
-      <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow">
+      <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Minecraft Patch Version 1.21.51.02
       </a>
-      <a href="https://www.mediafire.com/file/1dfl5nh0a7nih9g/11836516-9598-48f8-95d8-447d6ff11f8c.apk/file" target="_blank">
+      <a href="https://www.mediafire.com/file/1dfl5nh0a7nih9g/11836516-9598-48f8-95d8-447d6ff11f8c.apk/file" target="_blank" rel="noopener noreferrer">
         Minecraft Patch Version 1.21.50.07
       </a>
-      <a href="https://www.mediafire.com/file/l56hcq48m80ufra/b85f9eda-fc99-4513-9609-03782781cf36.apk/file" target="_blank">
+      <a href="https://www.mediafire.com/file/l56hcq48m80ufra/b85f9eda-fc99-4513-9609-03782781cf36.apk/file" target="_blank" rel="noopener noreferrer">
         Minecraft beta Patch Version 1.21.50.28
       </a>
-      <a href="https://drive.usercontent.google.com/download?id=1F4KQsebPtAvN4YdkwXhGQCY5JwAFMzPC&export=download&authuser=0" target="_blank" class="button-yellow">
+      <a href="https://drive.usercontent.google.com/download?id=1F4KQsebPtAvN4YdkwXhGQCY5JwAFMzPC&export=download&authuser=0" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Minecraft Patch Version 1.21.44.01
       </a>
-      <a href="https://github.com/mcpebd/mcpebd.github.io/releases/download/dumps/vanilla_music_1.21.44.zip.mcpack" target="_blank" class="button-yellow">
+      <a href="https://github.com/mcpebd/mcpebd.github.io/releases/download/dumps/vanilla_music_1.21.44.zip.mcpack" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Minecraft Music 1.21++
       </a>
       <h5 style="margin-top:20px;">|Source Yss Group|</h5>
       <h4 style="margin-bottom:20px;">Resource Pack and Behavior Pack</h4>
-      <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow">
+      <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Night Vision 1.21.51 mcpatch only
       </a>
-      <a href="https://drive.google.com/file/d/1N7C4PHGWUXv3unmkahWpKzYftqXcHgR-/view?usp=drivesdk" target="_blank" class="button-yellow">
+      <a href="https://drive.google.com/file/d/1N7C4PHGWUXv3unmkahWpKzYftqXcHgR-/view?usp=drivesdk" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Fast Loading Dimension Nether and End 1.21.51
       </a>
-      <a href="https://drive.usercontent.google.com/u/0/uc?id=1qLmK8eD7GTBZ9kbjqJM_NmpygY5TX8XF&export=download" target="_blank" class="button-yellow">
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1qLmK8eD7GTBZ9kbjqJM_NmpygY5TX8XF&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Night Vision Mcori and Mcpatch 1.21.51
       </a>
-      <a href="https://drive.usercontent.google.com/u/0/uc?id=1QAVhsVnXKe5xM-DeaUdvXghiqpCHxnmw&export=download" target="_blank" class="button-yellow">
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1QAVhsVnXKe5xM-DeaUdvXghiqpCHxnmw&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
         MiniMap Resource Pack "khusus hp yg kuat saja"
       </a>
-      <a href="https://drive.usercontent.google.com/u/0/uc?id=1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD&export=download" target="_blank" class="button-yellow">
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Player Esp 1.21+
       </a>
       <!-- Bagian untuk link custom dari file teks di GitHub dan file .mcpack dari GitHub API -->
@@ -233,7 +253,7 @@
     
     <!-- Link WhatsApp di bagian bawah -->
     <div id="whatsappLink" style="margin-top: 30px;">
-      <a href="https://bit.ly/ScWhatsApp" target="_blank">
+      <a href="https://bit.ly/ScWhatsApp" target="_blank" rel="noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
         WhatsApp Update Website
       </a>
@@ -250,6 +270,19 @@
       const links = document.getElementById('downloadLinks');
       links.classList.add('active');
       links.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Fungsi untuk menyalin link Scpatch ke clipboard
+    function copyScpatchLink() {
+      const link = "https://bit.ly/Scpatch";
+      navigator.clipboard.writeText(link)
+        .then(() => {
+          alert("Link berhasil disalin: " + link);
+        })
+        .catch(err => {
+          alert("Gagal menyalin link.");
+          console.error("Error copying text: ", err);
+        });
     }
 
     // Fungsi untuk mengambil file .mcpack dari GitHub repository "ScarilyId/mcpatch" (branch main)
@@ -272,12 +305,15 @@
               a.href = file.download_url;
               a.target = '_blank';
               a.textContent = file.name;
+              a.rel = "noopener noreferrer";
               container.appendChild(a);
             }
           });
         })
         .catch(error => {
           console.error('Error fetching resource pack files:', error);
+          const container = document.getElementById('downloadLinks');
+          container.innerHTML += '<p style="color: red;">Gagal memuat tautan, coba lagi nanti.</p>';
         });
     }
 
@@ -327,6 +363,7 @@
       const a = document.createElement('a');
       a.href = url;
       a.target = '_blank';
+      a.rel = "noopener noreferrer";
       
       if (imgUrl) {
         const img = document.createElement('img');
