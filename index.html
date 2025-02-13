@@ -37,7 +37,7 @@
       color: #fff;
       overflow-x: hidden;
     }
-    /* Top Bar (default Mobile Mode) */
+    /* --- Default Mobile Mode --- */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -56,7 +56,6 @@
       font-size: 0.85em;
       padding: 6px 10px;
     }
-    /* Container dan Heading */
     .container {
       max-width: 100%;
       margin: 0 auto;
@@ -69,7 +68,6 @@
       animation: slideInDown 1s ease-out;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
-    /* Tombol umum (default Mobile) */
     .button {
       display: inline-block;
       padding: 8px 16px;
@@ -103,7 +101,6 @@
     .button-yellow:hover {
       background-color: #e6b800;
     }
-    /* Download Links */
     .download-links {
       display: none;
       opacity: 0;
@@ -170,11 +167,29 @@
     }
     .upload-link:hover::before { opacity: 1; }
     .upload-link:hover { transform: scale(1.03); }
-    /* Header tiap pengguna */
-    .user-header {
-      margin-top: 20px;
-      font-size: 1.4em;
+    /* Setiap uploader akan ditempatkan dalam satu grup */
+    .uploader-group {
+      margin: 20px auto;
+      max-width: 500px;
+      text-align: left;
+    }
+    .uploader-group .user-header {
+      font-size: 1.2em;
       font-weight: bold;
+      margin-bottom: 8px;
+    }
+    /* Search box untuk upload */
+    .search-container {
+      margin: 20px auto;
+      max-width: 500px;
+      text-align: center;
+    }
+    .search-container input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1em;
     }
     /* WhatsApp Link */
     #whatsappLink {
@@ -293,6 +308,11 @@
       <a href="https://drive.usercontent.google.com/u/0/uc?id=1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Player Esp 1.21+
       </a>
+    </div>
+    
+    <!-- Search box untuk filter upload -->
+    <div class="search-container">
+      <input type="text" id="uploadSearch" placeholder="Cari upload..." />
     </div>
     
     <!-- Area untuk menampilkan file upload dari pengguna (berdasarkan file "Login") -->
@@ -425,39 +445,70 @@
               if (parts.length >= 2) {
                 const user = parts[0].trim();
                 const repo = parts[1].trim();
+                // Buat container untuk grup uploader
+                const uploaderGroup = document.createElement('div');
+                uploaderGroup.classList.add('uploader-group');
+                // Header dengan nama uploader
                 const userHeader = document.createElement('div');
                 userHeader.classList.add('user-header');
-                userHeader.textContent = "Uploaded by " + user;
-                uploadContainer.appendChild(userHeader);
+                userHeader.textContent = user;
+                uploaderGroup.appendChild(userHeader);
+                // Ambil file dari repository pengguna
                 fetch(`https://api.github.com/repos/${user}/${repo}/contents`)
                   .then(response => response.json())
                   .then(files => {
                     files.forEach(file => {
-                      // Terima file dengan ekstensi: .apk, .mcpack, .mcaddon, dan .zip
+                      // Terima file dengan ekstensi .apk, .mcpack, .mcaddon, dan .zip
                       const validExtensions = ['.apk', '.mcpack', '.mcaddon', '.zip'];
                       if (file.type === 'file' && validExtensions.some(ext => file.name.toLowerCase().endsWith(ext))) {
-                        const a = document.createElement('a');
-                        a.href = file.download_url;
-                        a.target = '_blank';
-                        a.textContent = file.name;
-                        a.rel = "noopener noreferrer";
-                        a.classList.add('upload-link');
-                        uploadContainer.appendChild(a);
+                        const fileLink = document.createElement('a');
+                        fileLink.href = file.download_url;
+                        fileLink.target = '_blank';
+                        fileLink.textContent = file.name;
+                        fileLink.rel = "noopener noreferrer";
+                        fileLink.classList.add('upload-link');
+                        uploaderGroup.appendChild(fileLink);
                       }
                     });
                   })
                   .catch(err => console.error('Error fetching files for user', user, err));
+                uploadContainer.appendChild(uploaderGroup);
               }
             }
           });
         })
         .catch(error => console.error('Error fetching Login file:', error));
     }
+    // Mesin pencarian untuk upload
+    document.getElementById('uploadSearch')?.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      const uploaderGroups = document.querySelectorAll('.uploader-group');
+      uploaderGroups.forEach(group => {
+        const headerText = group.querySelector('.user-header').textContent.toLowerCase();
+        const fileLinks = group.querySelectorAll('.upload-link');
+        let fileMatch = false;
+        fileLinks.forEach(link => {
+          if(link.textContent.toLowerCase().includes(query)) {
+            fileMatch = true;
+          }
+        });
+        if(headerText.includes(query) || fileMatch) {
+          group.style.display = '';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+    });
     window.addEventListener('load', function() {
       fetchResourcePackFiles();
       fetchCustomLinks();
       fetchRegisteredFiles();
     });
   </script>
+
+  <!-- Search box untuk upload -->
+  <div class="search-container" style="text-align: center; margin: 20px auto; max-width:500px;">
+    <input type="text" id="uploadSearch" placeholder="Cari upload..." style="width: 100%; padding: 10px; border-radius: 25px; border: none; font-size: 1em;" />
+  </div>
 </body>
 </html>
