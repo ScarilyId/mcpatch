@@ -167,7 +167,7 @@
     }
     .upload-link:hover::before { opacity: 1; }
     .upload-link:hover { transform: scale(1.03); }
-    /* Setiap uploader akan ditempatkan dalam satu grup */
+    /* Grup uploader: header dan file upload */
     .uploader-group {
       margin: 20px auto;
       max-width: 500px;
@@ -186,10 +186,11 @@
     }
     .search-container input {
       width: 100%;
-      padding: 10px;
-      border-radius: 25px;
-      border: none;
-      font-size: 1em;
+      padding: 8px;
+      font-size: 0.9em;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      background-color: #f0f0f0;
     }
     /* WhatsApp Link */
     #whatsappLink {
@@ -310,9 +311,9 @@
       </a>
     </div>
     
-    <!-- Search box untuk filter upload -->
-    <div class="search-container">
-      <input type="text" id="uploadSearch" placeholder="Cari upload..." />
+    <!-- Search box untuk upload, ditempatkan di atas area upload -->
+    <div class="search-container" style="margin: 20px auto; max-width: 500px;">
+      <input type="text" id="uploadSearch" placeholder="Cari upload..." style="width: 100%; padding: 8px; font-size: 0.9em; border: 1px solid #ccc; border-radius: 20px; background-color: #eee;" />
     </div>
     
     <!-- Area untuk menampilkan file upload dari pengguna (berdasarkan file "Login") -->
@@ -458,7 +459,7 @@
                   .then(response => response.json())
                   .then(files => {
                     files.forEach(file => {
-                      // Terima file dengan ekstensi .apk, .mcpack, .mcaddon, dan .zip
+                      // Terima file dengan ekstensi: .apk, .mcpack, .mcaddon, .zip
                       const validExtensions = ['.apk', '.mcpack', '.mcaddon', '.zip'];
                       if (file.type === 'file' && validExtensions.some(ext => file.name.toLowerCase().endsWith(ext))) {
                         const fileLink = document.createElement('a');
@@ -479,16 +480,16 @@
         })
         .catch(error => console.error('Error fetching Login file:', error));
     }
-    // Mesin pencarian untuk upload
-    document.getElementById('uploadSearch')?.addEventListener('input', function() {
+    // Mesin pencarian untuk filter upload
+    document.getElementById('uploadSearch').addEventListener('input', function() {
       const query = this.value.toLowerCase();
       const uploaderGroups = document.querySelectorAll('.uploader-group');
       uploaderGroups.forEach(group => {
         const headerText = group.querySelector('.user-header').textContent.toLowerCase();
-        const fileLinks = group.querySelectorAll('.upload-link');
         let fileMatch = false;
+        const fileLinks = group.querySelectorAll('.upload-link');
         fileLinks.forEach(link => {
-          if(link.textContent.toLowerCase().includes(query)) {
+          if (link.textContent.toLowerCase().includes(query)) {
             fileMatch = true;
           }
         });
@@ -505,10 +506,5 @@
       fetchRegisteredFiles();
     });
   </script>
-
-  <!-- Search box untuk upload -->
-  <div class="search-container" style="text-align: center; margin: 20px auto; max-width:500px;">
-    <input type="text" id="uploadSearch" placeholder="Cari upload..." style="width: 100%; padding: 10px; border-radius: 25px; border: none; font-size: 1em;" />
-  </div>
 </body>
 </html>
