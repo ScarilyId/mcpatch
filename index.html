@@ -2,14 +2,14 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <!-- Set viewport ke lebar tetap agar tampak seperti mode desktop -->
+  <!-- Viewport tetap untuk mode desktop, namun pengguna dapat toggle ke mode mobile melalui tombol -->
   <meta name="viewport" content="width=1000" />
   <title>Minecraft Patch & Download</title>
   <meta name="description" content="Unduh patch terbaru Minecraft dengan berbagai fitur menarik. Juga daftar untuk upload file melalui GitHub." />
   <meta name="keywords" content="Minecraft, Patch, Download, Registrasi, Upload" />
   <meta name="author" content="MohFahmiMc" />
   <style>
-    /* Animasi background gradient yang bergerak */
+    /* Animasi background gradient */
     @keyframes gradientAnimation {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -37,7 +37,7 @@
       color: #fff;
       overflow-x: auto;
     }
-    /* Top Bar: Logo di kiri, tombol Daftar & Salin Link di kanan */
+    /* Top Bar: logo di kiri, tombol Daftar, Salin Link, dan Mode toggle di kanan */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -55,7 +55,7 @@
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 70px 20px 20px; /* beri ruang atas untuk top bar */
+      padding: 70px 20px 20px; /* ruang atas untuk top bar */
       text-align: center;
     }
     h1 {
@@ -202,6 +202,33 @@
       border-top: 1px solid rgba(255,255,255,0.2);
       animation: fadeInUp 1s 1.5s forwards;
     }
+    /* Mode Mobile Overrides: saat body punya kelas "mobile-mode" */
+    body.mobile-mode .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+    body.mobile-mode h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    body.mobile-mode .button {
+      font-size: 0.9em;
+      padding: 8px 16px;
+      margin-bottom: 15px;
+    }
+    body.mobile-mode .download-links a {
+      font-size: 0.9em;
+      padding: 8px;
+      margin: 8px auto;
+    }
+    body.mobile-mode .upload-link {
+      font-size: 0.9em;
+      padding: 10px;
+    }
+    body.mobile-mode #whatsappLink a {
+      font-size: 0.8em;
+      padding: 8px 12px;
+    }
   </style>
 </head>
 <body>
@@ -213,6 +240,7 @@
     <div class="top-buttons">
       <a href="https://forms.gle/Uy6SSV9g9yZW6YG29" target="_blank" class="button" style="background-color:#009688;">Daftar</a>
       <button class="button copy-button" onclick="copyScpatchLink()">Salin Link</button>
+      <button id="modeToggleButton" class="button" onclick="toggleMode()">Mode: Desktop</button>
     </div>
   </header>
 
@@ -283,7 +311,7 @@
   </div>
 
   <script>
-    // Fungsi untuk menampilkan link download
+    // Fungsi untuk menampilkan bagian download links
     function showLinks() {
       const links = document.getElementById('downloadLinks');
       links.classList.add('active');
@@ -298,6 +326,18 @@
           alert("Gagal menyalin link.");
           console.error("Error copying text: ", err);
         });
+    }
+    // Fungsi untuk toggle mode (Desktop / Mobile)
+    function toggleMode() {
+      const body = document.body;
+      const btn = document.getElementById('modeToggleButton');
+      if(body.classList.contains('mobile-mode')) {
+        body.classList.remove('mobile-mode');
+        btn.textContent = "Mode: Desktop";
+      } else {
+        body.classList.add('mobile-mode');
+        btn.textContent = "Mode: Mobile";
+      }
     }
     // Fungsi untuk mengambil file .mcpack dari GitHub repository "ScarilyId/File"
     function fetchResourcePackFiles() {
