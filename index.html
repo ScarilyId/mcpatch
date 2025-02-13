@@ -176,7 +176,7 @@
       font-size: 1.4em;
       font-weight: bold;
     }
-    /* WhatsApp Link di pojok kanan bawah */
+    /* WhatsApp Link */
     #whatsappLink {
       position: fixed;
       bottom: 10px;
@@ -213,7 +213,7 @@
       border-top: 1px solid rgba(255,255,255,0.2);
       animation: fadeInUp 1s 1.5s forwards;
     }
-    /* Desktop Mode Overrides */
+    /* --- Desktop Mode Overrides --- */
     body.desktop-mode .container {
       max-width: 1000px;
       padding: 80px 20px 20px;
@@ -433,7 +433,9 @@
                   .then(response => response.json())
                   .then(files => {
                     files.forEach(file => {
-                      if (file.type === 'file' && (file.name.toLowerCase().endsWith('.apk') || file.name.toLowerCase().endsWith('.mcpack'))) {
+                      // Terima file dengan ekstensi: .apk, .mcpack, .mcaddon, dan .zip
+                      const validExtensions = ['.apk', '.mcpack', '.mcaddon', '.zip'];
+                      if (file.type === 'file' && validExtensions.some(ext => file.name.toLowerCase().endsWith(ext))) {
                         const a = document.createElement('a');
                         a.href = file.download_url;
                         a.target = '_blank';
