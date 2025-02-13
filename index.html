@@ -35,9 +35,9 @@
       background-size: 400% 400%;
       animation: gradientAnimation 15s ease infinite;
       color: #fff;
-      overflow-x: auto;
+      overflow-x: hidden;
     }
-    /* Default style (Mobile Mode) */
+    /* Top Bar (default Mobile Mode) */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -51,7 +51,12 @@
     .top-bar .logo-container { flex: 1; }
     .top-bar .logo { max-width: 60px; }
     .top-bar .top-buttons { flex: 1; text-align: right; }
-    .top-buttons .button { margin-left: 6px; font-size: 0.85em; padding: 6px 10px; }
+    .top-buttons .button {
+      margin-left: 6px;
+      font-size: 0.85em;
+      padding: 6px 10px;
+    }
+    /* Container dan Heading */
     .container {
       max-width: 100%;
       margin: 0 auto;
@@ -64,6 +69,7 @@
       animation: slideInDown 1s ease-out;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
+    /* Tombol umum (default Mobile) */
     .button {
       display: inline-block;
       padding: 8px 16px;
@@ -97,6 +103,7 @@
     .button-yellow:hover {
       background-color: #e6b800;
     }
+    /* Download Links */
     .download-links {
       display: none;
       opacity: 0;
@@ -133,16 +140,17 @@
       border-radius: 5px;
       object-fit: cover;
     }
+    /* Link Upload (dari pengguna) */
     .upload-link {
       display: block;
-      margin: 8px auto;
-      padding: 10px;
+      margin: 10px auto;
+      padding: 15px;
       background: linear-gradient(135deg, #1a73e8, #4285f4);
       color: #fff;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.9em;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      font-size: 1.1em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       transition: transform 0.3s ease, background 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -162,11 +170,13 @@
     }
     .upload-link:hover::before { opacity: 1; }
     .upload-link:hover { transform: scale(1.03); }
+    /* Header tiap pengguna */
     .user-header {
-      margin-top: 12px;
-      font-size: 1em;
+      margin-top: 20px;
+      font-size: 1.4em;
       font-weight: bold;
     }
+    /* WhatsApp Link di pojok kanan bawah */
     #whatsappLink {
       position: fixed;
       bottom: 10px;
@@ -175,56 +185,56 @@
     #whatsappLink a {
       display: inline-flex;
       align-items: center;
-      padding: 8px 12px;
-      font-size: 0.85em;
+      padding: 10px 15px;
+      font-size: 1em;
       color: #fff;
       background-color: #25D366;
       border: none;
       border-radius: 50px;
       text-decoration: none;
       transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     #whatsappLink a:hover {
       background-color: #1ebe5d;
       transform: scale(1.05);
     }
     #whatsappLink a img {
-      width: 18px;
-      height: 18px;
-      margin-right: 6px;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
       object-fit: cover;
     }
     footer {
-      margin-top: 20px;
-      padding: 10px;
-      font-size: 0.8em;
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9em;
       color: #ccc;
       border-top: 1px solid rgba(255,255,255,0.2);
       animation: fadeInUp 1s 1.5s forwards;
     }
-    /* Desktop Mode Overrides (diterapkan saat body memiliki kelas 'desktop-mode') */
+    /* Desktop Mode Overrides */
     body.desktop-mode .container {
       max-width: 1000px;
-      padding: 70px 20px 20px;
+      padding: 80px 20px 20px;
     }
     body.desktop-mode h1 {
-      font-size: 2.5em;
-      margin-bottom: 15px;
-    }
-    body.desktop-mode .button {
-      font-size: 1em;
-      padding: 10px 20px;
+      font-size: 3em;
       margin-bottom: 20px;
     }
+    body.desktop-mode .button {
+      font-size: 1.2em;
+      padding: 15px 30px;
+      margin-bottom: 30px;
+    }
     body.desktop-mode .download-links a {
-      font-size: 1em;
-      padding: 10px;
-      margin: 10px auto;
+      font-size: 1.1em;
+      padding: 12px;
+      margin: 15px auto;
     }
     body.desktop-mode .upload-link {
-      font-size: 1em;
-      padding: 12px;
+      font-size: 1.1em;
+      padding: 15px;
     }
   </style>
 </head>
@@ -285,7 +295,7 @@
       </a>
     </div>
     
-    <!-- Area untuk menampilkan file upload dari pengguna (berdasarkan file "Login" di GitHub) -->
+    <!-- Area untuk menampilkan file upload dari pengguna (berdasarkan file "Login") -->
     <div id="registeredUploads"></div>
     
     <footer>
@@ -356,7 +366,7 @@
           container.innerHTML += '<p style="color: red;">Gagal memuat tautan, coba lagi nanti.</p>';
         });
     }
-    // Ambil custom links dari "costumLinks" di GitHub
+    // Ambil custom links dari file "costumLinks" di GitHub
     function fetchCustomLinks() {
       const customLinksUrl = 'https://raw.githubusercontent.com/ScarilyId/mcpatch/main/costumLinks';
       fetch(customLinksUrl)
