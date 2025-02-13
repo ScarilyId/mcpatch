@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minecraft Patch & Registrasi</title>
-  <meta name="description" content="Unduh patch terbaru Minecraft dan lihat file yang diupload oleh pengguna yang sudah terdaftar." />
+  <title>Minecraft Patch & Download</title>
+  <meta name="description" content="Unduh patch terbaru Minecraft dengan berbagai fitur menarik. Juga daftar untuk upload file melalui GitHub." />
   <meta name="keywords" content="Minecraft, Patch, Download, Registrasi, Upload" />
   <meta name="author" content="MohFahmiMc" />
   <style>
@@ -25,9 +25,7 @@
       100% { opacity: 1; transform: translateY(0); }
     }
     /* Reset dan background */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 0;
@@ -38,17 +36,35 @@
       color: #fff;
       overflow-x: hidden;
     }
+    /* Top bar untuk logo dan tombol pendaftaran/salin link */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .top-bar .logo-container {
+      flex: 1;
+    }
+    .top-bar .logo {
+      max-width: 100px;
+    }
+    .top-bar .top-buttons {
+      flex: 1;
+      text-align: right;
+    }
+    .top-buttons .button {
+      margin-left: 10px;
+    }
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 80px 20px 20px; /* beri ruang atas untuk top bar */
       text-align: center;
-    }
-    /* Style logo */
-    .logo {
-      max-width: 150px;
-      display: block;
-      margin: 0 auto 20px;
     }
     h1 {
       font-size: 3em;
@@ -69,20 +85,28 @@
       opacity: 0;
       animation: fadeInUp 1s 0.5s forwards;
       transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       text-decoration: none;
     }
     .button:hover {
       background-color: #9b30b1;
       transform: scale(1.05);
     }
-    .button.copy-button {
+    /* Tombol khusus */
+    .copy-button {
       background-color: #ff4500;
-      margin-left: 10px;
     }
-    .button.copy-button:hover {
+    .copy-button:hover {
       background-color: #ff6347;
     }
+    .button-yellow {
+      background-color: #ffcc00;
+      color: #333;
+    }
+    .button-yellow:hover {
+      background-color: #e6b800;
+    }
+    /* Download links */
     .download-links {
       display: none;
       opacity: 0;
@@ -93,13 +117,17 @@
       opacity: 1;
     }
     .download-links a {
-      display: block;
-      margin: 10px auto;
+      display: flex;
+      align-items: center;
       padding: 12px;
+      margin: 15px auto;
       background-color: #8a2be2;
       border-radius: 50px;
+      text-align: left;
+      font-size: 1.1em;
       text-decoration: none;
       color: #fff;
+      width: 90%;
       max-width: 500px;
       transition: background-color 0.3s ease, transform 0.3s ease;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -108,43 +136,47 @@
       background-color: #7a1b9b;
       transform: translateY(-3px);
     }
-    /* Styling untuk header pada setiap pengguna */
+    .download-links a img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+    /* Header untuk tiap pengguna (hasil dari file Login) */
     .user-header {
       margin-top: 20px;
       font-size: 1.4em;
       font-weight: bold;
     }
-    /* Styling khusus untuk form login/verifikasi (jika diperlukan) */
-    .form-container {
-      background: rgba(0,0,0,0.3);
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px auto;
-      max-width: 400px;
-      text-align: left;
+    /* WhatsApp link: logo diperkecil dan ditempatkan di pojok bawah */
+    #whatsappLink {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
     }
-    .form-container label {
-      margin: 10px 0 5px;
-      display: block;
-    }
-    .form-container input {
-      width: 100%;
-      padding: 8px;
-      border: none;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-    .form-container button {
-      width: 100%;
-      padding: 10px;
-      background: #6a0dad;
-      border: none;
+    #whatsappLink a {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 15px;
+      font-size: 1em;
       color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
+      background-color: #25D366;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
-    .form-container button:hover {
-      background: #9b30b1;
+    #whatsappLink a:hover {
+      background-color: #1ebe5d;
+      transform: scale(1.05);
+    }
+    #whatsappLink a img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      object-fit: cover;
     }
     footer {
       margin-top: 40px;
@@ -154,71 +186,105 @@
       border-top: 1px solid rgba(255,255,255,0.2);
       animation: fadeInUp 1s 1.5s forwards;
     }
+    /* Responsive tweaks untuk mobile */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2em;
-      }
-      .button {
-        font-size: 1em;
-        padding: 12px 25px;
-      }
-      .download-links a {
-        font-size: 1em;
-        padding: 10px;
-      }
+      h1 { font-size: 2.2em; }
+      .button { font-size: 1em; padding: 12px 25px; }
+      .download-links a { font-size: 1em; padding: 10px; }
+      .download-links a img { width: 30px; height: 30px; margin-right: 8px; }
+      #whatsappLink a { font-size: 0.9em; padding: 10px 15px; }
+      #whatsappLink a img { width: 15px; height: 15px; margin-right: 6px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Logo dan Judul -->
+  <!-- Top Bar dengan Logo dan Tombol Pendaftaran/Salin Link -->
+  <header class="top-bar">
     <div class="logo-container">
-      <img src="https://cdn.discordapp.com/attachments/1150668508011700354/1338401733788831755/1739170174781.png" alt="Logo Website" class="logo">
+      <img src="https://cdn.discordapp.com/attachments/1150668508011700354/1338401733788831755/1739170174781.png?ex=67aaf33f&is=67a9a1bf&hm=4c696062974e82f5285bbc24144a06efe1c7e39c2ed26a6dd66a561845209085&" alt="Logo Website" class="logo">
     </div>
+    <div class="top-buttons">
+      <!-- Tombol Pendaftaran (mengarah ke Google Form) -->
+      <a href="https://forms.gle/Uy6SSV9g9yZW6YG29" target="_blank" class="button" style="background-color:#009688;">Daftar</a>
+      <!-- Tombol Salin Link -->
+      <button class="button copy-button" onclick="copyScpatchLink()">Salin Link</button>
+    </div>
+  </header>
+
+  <div class="container">
     <h1>Minecraft Patch</h1>
-    
-    <!-- Tombol untuk tampilkan link download -->
+    <!-- Tombol untuk menampilkan link download -->
     <button class="button" onclick="showLinks()">Klik untuk Lihat Link Download</button>
-    <!-- Tombol salin link -->
-    <button class="button copy-button" onclick="copyScpatchLink()">Salin Link Scpatch</button>
-    
-    <!-- Tombol Pendaftaran melalui Google Form -->
-    <a href="https://forms.gle/Uy6SSV9g9yZW6YG29" target="_blank" class="button" style="background-color:#009688;">
-      Daftar Sekarang
-    </a>
-    
-    <!-- Catatan: Data pendaftaran diambil dari file Login di GitHub (format: username|repository) -->
     
     <!-- Daftar Link Download -->
     <div class="download-links" id="downloadLinks">
-      <!-- Link default (misal, yang sudah ada) -->
+      <!-- Custom MC Links (akan tampil di paling atas bagian Minecraft) -->
+      <div id="customMCLinks"></div>
+      
+      <!-- Link Minecraft yang sudah ada -->
       <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Minecraft Patch Version 1.21.51.02
       </a>
-      <!-- Link lainnya bisa ditambahkan di sini -->
-    </div>
-    
-    <!-- Link WhatsApp -->
-    <div id="whatsappLink" style="margin-top: 30px;">
-      <a href="https://bit.ly/ScWhatsApp" target="_blank" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-        WhatsApp Update Website
+      <a href="https://www.mediafire.com/file/1dfl5nh0a7nih9g/11836516-9598-48f8-95d8-447d6ff11f8c.apk/file" target="_blank" rel="noopener noreferrer">
+        Minecraft Patch Version 1.21.50.07
+      </a>
+      <a href="https://www.mediafire.com/file/l56hcq48m80ufra/b85f9eda-fc99-4513-9609-03782781cf36.apk/file" target="_blank" rel="noopener noreferrer">
+        Minecraft beta Patch Version 1.21.50.28
+      </a>
+      <a href="https://drive.usercontent.google.com/download?id=1F4KQsebPtAvN4YdkwXhGQCY5JwAFMzPC&export=download&authuser=0" target="_blank" class="button-yellow" rel="noopener noreferrer">
+        Minecraft Patch Version 1.21.44.01
+      </a>
+      <a href="https://github.com/mcpebd/mcpebd.github.io/releases/download/dumps/vanilla_music_1.21.44.zip.mcpack" target="_blank" class="button-yellow" rel="noopener noreferrer">
+        Minecraft Music 1.21++
+      </a>
+      
+      <h5 style="margin-top:20px;">|Source Yss Group|</h5>
+      <h4 style="margin-bottom:20px;">Resource Pack and Behavior Pack</h4>
+      
+      <!-- Custom RS Links (akan tampil di paling atas bagian Resource Pack) -->
+      <div id="customRSLinks"></div>
+      
+      <!-- Link Resource Pack yang sudah ada -->
+      <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow" rel="noopener noreferrer">
+        Night Vision 1.21.51 mcpatch only
+      </a>
+      <a href="https://drive.google.com/file/d/1N7C4PHGWUXv3unmkahWpKzYftqXcHgR-/view?usp=drivesdk" target="_blank" class="button-yellow" rel="noopener noreferrer">
+        Fast Loading Dimension Nether and End 1.21.51
+      </a>
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1qLmK8eD7GTBZ9kbjqJM_NmpygY5TX8XF&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
+        Night Vision Mcori and Mcpatch 1.21.51
+      </a>
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1QAVhsVnXKe5xM-DeaUdvXghiqpCHxnmw&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
+        MiniMap Resource Pack "khusus hp yg kuat saja"
+      </a>
+      <a href="https://drive.usercontent.google.com/u/0/uc?id=1PN4CWj3NYuk0XOU620G1vMzw93kAzQlD&export=download" target="_blank" class="button-yellow" rel="noopener noreferrer">
+        Player Esp 1.21+
       </a>
     </div>
+    
+    <!-- Area untuk menampilkan file upload dari pengguna berdasarkan file "Login" di GitHub -->
+    <div id="registeredUploads"></div>
     
     <footer>
       <p>Create website by @MohFahmiMc</p>
     </footer>
   </div>
+  
+  <!-- WhatsApp Link di pojok kanan bawah -->
+  <div id="whatsappLink">
+    <a href="https://bit.ly/ScWhatsApp" target="_blank" rel="noopener noreferrer">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+      WhatsApp Update Website
+    </a>
+  </div>
 
   <script>
-    // Fungsi untuk menampilkan bagian link download
+    // Fungsi untuk menampilkan bagian download links
     function showLinks() {
       const links = document.getElementById('downloadLinks');
       links.classList.add('active');
       links.scrollIntoView({ behavior: 'smooth' });
     }
-
     // Fungsi untuk menyalin link Scpatch ke clipboard
     function copyScpatchLink() {
       const link = "https://bit.ly/Scpatch";
@@ -231,33 +297,100 @@
           console.error("Error copying text: ", err);
         });
     }
-
-    // Fungsi untuk mengambil file "Login" dari GitHub dan memuat file dari tiap registrasi
+    // Fungsi untuk mengambil file .mcpack dari GitHub repository "ScarilyId/File"
+    function fetchResourcePackFiles() {
+      const githubUsername = 'ScarilyId';
+      const repository = 'File';
+      const apiUrl = `https://api.github.com/repos/${githubUsername}/${repository}/contents`;
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('downloadLinks');
+          data.forEach(file => {
+            if (file.type === 'file' && file.name.toLowerCase().endsWith('.mcpack')) {
+              const a = document.createElement('a');
+              a.href = file.download_url;
+              a.target = '_blank';
+              a.textContent = file.name;
+              a.rel = "noopener noreferrer";
+              container.appendChild(a);
+            }
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching resource pack files:', error);
+          const container = document.getElementById('downloadLinks');
+          container.innerHTML += '<p style="color: red;">Gagal memuat tautan, coba lagi nanti.</p>';
+        });
+    }
+    // Fungsi untuk mengambil custom links dari file teks di GitHub (costumLinks)
+    function fetchCustomLinks() {
+      const customLinksUrl = 'https://raw.githubusercontent.com/ScarilyId/mcpatch/main/costumLinks';
+      fetch(customLinksUrl)
+        .then(response => response.text())
+        .then(data => {
+          const lines = data.split('\n');
+          lines.forEach(line => {
+            line = line.trim();
+            if (line) {
+              const parts = line.split('|');
+              if (parts.length >= 3) {
+                const code = parts[0].trim().replace(/[\[\]]/g, '').toLowerCase();
+                const text = parts[1].trim().replace(/[\[\]]/g, '');
+                const url  = parts[2].trim().replace(/[\[\]]/g, '');
+                const imgUrl = (parts.length >= 4) ? parts[3].trim().replace(/[\[\]]/g, '') : null;
+                if (code === 'mc') {
+                  addLinkToSection('customMCLinks', text, url, imgUrl);
+                } else if (code === 'rs') {
+                  addLinkToSection('customRSLinks', text, url, imgUrl);
+                }
+              }
+            }
+          });
+        })
+        .catch(error => console.error('Error fetching custom links:', error));
+    }
+    // Fungsi untuk menambahkan link ke wadah tertentu (prepend)
+    function addLinkToSection(sectionId, text, url, imgUrl) {
+      const container = document.getElementById(sectionId);
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = "noopener noreferrer";
+      if (imgUrl) {
+        const img = document.createElement('img');
+        img.src = imgUrl;
+        img.alt = text;
+        a.appendChild(img);
+      }
+      const span = document.createElement('span');
+      span.textContent = text;
+      a.appendChild(span);
+      container.prepend(a);
+    }
+    // Fungsi untuk mengambil file "Login" dari GitHub dan kemudian memuat file dari tiap repository pengguna
     function fetchRegisteredFiles() {
-      // Ambil file Login yang berisi daftar username|repository
       fetch('https://api.github.com/repos/ScarilyId/mcpatch/contents/Login')
         .then(response => response.json())
         .then(data => {
-          // Decode konten file yang dikembalikan dalam base64
           const content = atob(data.content);
           const lines = content.split('\n');
+          const uploadContainer = document.getElementById('registeredUploads');
           lines.forEach(line => {
             if (line.trim() !== '') {
               const parts = line.split('|');
               if (parts.length >= 2) {
                 const user = parts[0].trim();
                 const repo = parts[1].trim();
-                // Ambil file dari repository masing-masing pengguna
+                // Buat header untuk pengguna ini
+                const userHeader = document.createElement('div');
+                userHeader.classList.add('user-header');
+                userHeader.textContent = "Uploaded by " + user;
+                uploadContainer.appendChild(userHeader);
+                // Ambil file dari repository pengguna
                 fetch(`https://api.github.com/repos/${user}/${repo}/contents`)
                   .then(response => response.json())
                   .then(files => {
-                    // Buat header untuk menandai file dari pengguna ini
-                    const container = document.getElementById('downloadLinks');
-                    const header = document.createElement('div');
-                    header.classList.add('user-header');
-                    header.textContent = "Uploaded by " + user;
-                    container.appendChild(header);
-                    // Tambahkan link untuk file yang berekstensi .apk atau .mcpack
                     files.forEach(file => {
                       if (file.type === 'file' && (file.name.toLowerCase().endsWith('.apk') || file.name.toLowerCase().endsWith('.mcpack'))) {
                         const a = document.createElement('a');
@@ -265,7 +398,7 @@
                         a.target = '_blank';
                         a.textContent = file.name;
                         a.rel = "noopener noreferrer";
-                        container.appendChild(a);
+                        uploadContainer.appendChild(a);
                       }
                     });
                   })
@@ -276,9 +409,9 @@
         })
         .catch(error => console.error('Error fetching Login file:', error));
     }
-
-    // Panggil fungsi untuk memuat file registrasi pada saat halaman load
     window.addEventListener('load', function() {
+      fetchResourcePackFiles();
+      fetchCustomLinks();
       fetchRegisteredFiles();
     });
   </script>
