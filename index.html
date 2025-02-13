@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <!-- Viewport tetap untuk mode desktop, namun pengguna dapat toggle ke mode mobile melalui tombol -->
-  <meta name="viewport" content="width=1000" />
+  <!-- Default viewport untuk mode mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Minecraft Patch & Download</title>
   <meta name="description" content="Unduh patch terbaru Minecraft dengan berbagai fitur menarik. Juga daftar untuk upload file melalui GitHub." />
   <meta name="keywords" content="Minecraft, Patch, Download, Registrasi, Upload" />
@@ -37,43 +37,43 @@
       color: #fff;
       overflow-x: auto;
     }
-    /* Top Bar: logo di kiri, tombol Daftar, Salin Link, dan Mode toggle di kanan */
+    /* Default style (Mobile Mode) */
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 20px;
+      padding: 8px 12px;
       background: rgba(0,0,0,0.3);
       position: sticky;
       top: 0;
       z-index: 100;
     }
     .top-bar .logo-container { flex: 1; }
-    .top-bar .logo { max-width: 80px; }
+    .top-bar .logo { max-width: 60px; }
     .top-bar .top-buttons { flex: 1; text-align: right; }
-    .top-buttons .button { margin-left: 10px; }
+    .top-buttons .button { margin-left: 6px; font-size: 0.85em; padding: 6px 10px; }
     .container {
-      max-width: 1000px;
+      max-width: 100%;
       margin: 0 auto;
-      padding: 70px 20px 20px; /* ruang atas untuk top bar */
+      padding: 10px;
       text-align: center;
     }
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 15px;
+      font-size: 2em;
+      margin-bottom: 10px;
       animation: slideInDown 1s ease-out;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
     .button {
       display: inline-block;
-      padding: 10px 20px;
-      font-size: 1em;
+      padding: 8px 16px;
+      font-size: 0.9em;
       color: #fff;
       background-color: #6a0dad;
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       opacity: 0;
       animation: fadeInUp 1s 0.5s forwards;
       transition: transform 0.3s ease, background-color 0.3s ease;
@@ -84,15 +84,19 @@
       background-color: #9b30b1;
       transform: scale(1.05);
     }
-    /* Tombol khusus */
-    .copy-button { background-color: #ff4500; }
-    .copy-button:hover { background-color: #ff6347; }
+    .copy-button {
+      background-color: #ff4500;
+    }
+    .copy-button:hover {
+      background-color: #ff6347;
+    }
     .button-yellow {
       background-color: #ffcc00;
       color: #333;
     }
-    .button-yellow:hover { background-color: #e6b800; }
-    /* Download links */
+    .button-yellow:hover {
+      background-color: #e6b800;
+    }
     .download-links {
       display: none;
       opacity: 0;
@@ -105,12 +109,12 @@
     .download-links a {
       display: flex;
       align-items: center;
-      padding: 10px;
-      margin: 10px auto;
+      padding: 8px;
+      margin: 8px auto;
       background-color: #8a2be2;
       border-radius: 50px;
       text-align: left;
-      font-size: 1em;
+      font-size: 0.9em;
       text-decoration: none;
       color: #fff;
       width: 90%;
@@ -123,22 +127,21 @@
       transform: translateY(-3px);
     }
     .download-links a img {
-      width: 35px;
-      height: 35px;
-      margin-right: 8px;
+      width: 30px;
+      height: 30px;
+      margin-right: 6px;
       border-radius: 5px;
       object-fit: cover;
     }
-    /* Link upload (dari pengguna) */
     .upload-link {
       display: block;
       margin: 8px auto;
-      padding: 12px;
+      padding: 10px;
       background: linear-gradient(135deg, #1a73e8, #4285f4);
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
-      font-size: 1em;
+      font-size: 0.9em;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: transform 0.3s ease, background 0.3s ease;
       position: relative;
@@ -159,13 +162,11 @@
     }
     .upload-link:hover::before { opacity: 1; }
     .upload-link:hover { transform: scale(1.03); }
-    /* Header untuk tiap pengguna (hasil dari file Login) */
     .user-header {
-      margin-top: 15px;
-      font-size: 1.2em;
+      margin-top: 12px;
+      font-size: 1em;
       font-weight: bold;
     }
-    /* WhatsApp Link di pojok kanan bawah */
     #whatsappLink {
       position: fixed;
       bottom: 10px;
@@ -175,7 +176,7 @@
       display: inline-flex;
       align-items: center;
       padding: 8px 12px;
-      font-size: 0.9em;
+      font-size: 0.85em;
       color: #fff;
       background-color: #25D366;
       border: none;
@@ -195,39 +196,35 @@
       object-fit: cover;
     }
     footer {
-      margin-top: 30px;
-      padding: 15px;
+      margin-top: 20px;
+      padding: 10px;
       font-size: 0.8em;
       color: #ccc;
       border-top: 1px solid rgba(255,255,255,0.2);
       animation: fadeInUp 1s 1.5s forwards;
     }
-    /* Mode Mobile Overrides: saat body punya kelas "mobile-mode" */
-    body.mobile-mode .container {
-      max-width: 100%;
-      padding: 10px;
+    /* Desktop Mode Overrides (diterapkan saat body memiliki kelas 'desktop-mode') */
+    body.desktop-mode .container {
+      max-width: 1000px;
+      padding: 70px 20px 20px;
     }
-    body.mobile-mode h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    body.mobile-mode .button {
-      font-size: 0.9em;
-      padding: 8px 16px;
+    body.desktop-mode h1 {
+      font-size: 2.5em;
       margin-bottom: 15px;
     }
-    body.mobile-mode .download-links a {
-      font-size: 0.9em;
-      padding: 8px;
-      margin: 8px auto;
+    body.desktop-mode .button {
+      font-size: 1em;
+      padding: 10px 20px;
+      margin-bottom: 20px;
     }
-    body.mobile-mode .upload-link {
-      font-size: 0.9em;
+    body.desktop-mode .download-links a {
+      font-size: 1em;
       padding: 10px;
+      margin: 10px auto;
     }
-    body.mobile-mode #whatsappLink a {
-      font-size: 0.8em;
-      padding: 8px 12px;
+    body.desktop-mode .upload-link {
+      font-size: 1em;
+      padding: 12px;
     }
   </style>
 </head>
@@ -240,20 +237,17 @@
     <div class="top-buttons">
       <a href="https://forms.gle/Uy6SSV9g9yZW6YG29" target="_blank" class="button" style="background-color:#009688;">Daftar</a>
       <button class="button copy-button" onclick="copyScpatchLink()">Salin Link</button>
-      <button id="modeToggleButton" class="button" onclick="toggleMode()">Mode: Desktop</button>
+      <button id="modeToggleButton" class="button" onclick="toggleMode()">Switch to Desktop Mode</button>
     </div>
   </header>
 
   <div class="container">
     <h1>Minecraft Patch</h1>
-    <!-- Tombol untuk menampilkan link download -->
     <button class="button" onclick="showLinks()">Klik untuk Lihat Link Download</button>
     
     <!-- Daftar Link Download -->
     <div class="download-links" id="downloadLinks">
-      <!-- Custom MC Links -->
       <div id="customMCLinks"></div>
-      <!-- Link default -->
       <a href="https://www.mediafire.com/file/rprzirzg252u41x/3f9ca612-fc5d-4c6c-aba3-b7a35cab222b.apk/file" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Minecraft Patch Version 1.21.51.02
       </a>
@@ -273,10 +267,7 @@
       <h5 style="margin-top:20px;">|Source Yss Group|</h5>
       <h4 style="margin-bottom:20px;">Resource Pack and Behavior Pack</h4>
       
-      <!-- Custom RS Links -->
       <div id="customRSLinks"></div>
-      
-      <!-- Link Resource Pack default -->
       <a href="https://drive.google.com/file/d/1NCk3yCdsMhScfdjECw8Xjj0By2zSAFus/view?usp=drivesdk" target="_blank" class="button-yellow" rel="noopener noreferrer">
         Night Vision 1.21.51 mcpatch only
       </a>
@@ -294,7 +285,7 @@
       </a>
     </div>
     
-    <!-- Area untuk menampilkan file upload dari pengguna (berdasarkan file "Login") -->
+    <!-- Area untuk menampilkan file upload dari pengguna (berdasarkan file "Login" di GitHub) -->
     <div id="registeredUploads"></div>
     
     <footer>
@@ -311,13 +302,13 @@
   </div>
 
   <script>
-    // Fungsi untuk menampilkan bagian download links
+    // Tampilkan download links
     function showLinks() {
       const links = document.getElementById('downloadLinks');
       links.classList.add('active');
       links.scrollIntoView({ behavior: 'smooth' });
     }
-    // Fungsi untuk menyalin link Scpatch ke clipboard
+    // Salin link Scpatch
     function copyScpatchLink() {
       const link = "https://bit.ly/Scpatch";
       navigator.clipboard.writeText(link)
@@ -327,19 +318,19 @@
           console.error("Error copying text: ", err);
         });
     }
-    // Fungsi untuk toggle mode (Desktop / Mobile)
+    // Toggle mode: default mobile, toggle ke desktop mode
     function toggleMode() {
       const body = document.body;
       const btn = document.getElementById('modeToggleButton');
-      if(body.classList.contains('mobile-mode')) {
-        body.classList.remove('mobile-mode');
-        btn.textContent = "Mode: Desktop";
+      if(body.classList.contains('desktop-mode')) {
+        body.classList.remove('desktop-mode');
+        btn.textContent = "Switch to Desktop Mode";
       } else {
-        body.classList.add('mobile-mode');
-        btn.textContent = "Mode: Mobile";
+        body.classList.add('desktop-mode');
+        btn.textContent = "Switch to Mobile Mode";
       }
     }
-    // Fungsi untuk mengambil file .mcpack dari GitHub repository "ScarilyId/File"
+    // Ambil file .mcpack dari repository "ScarilyId/File"
     function fetchResourcePackFiles() {
       const githubUsername = 'ScarilyId';
       const repository = 'File';
@@ -365,7 +356,7 @@
           container.innerHTML += '<p style="color: red;">Gagal memuat tautan, coba lagi nanti.</p>';
         });
     }
-    // Fungsi untuk mengambil custom links dari file "costumLinks" di GitHub
+    // Ambil custom links dari "costumLinks" di GitHub
     function fetchCustomLinks() {
       const customLinksUrl = 'https://raw.githubusercontent.com/ScarilyId/mcpatch/main/costumLinks';
       fetch(customLinksUrl)
@@ -392,7 +383,7 @@
         })
         .catch(error => console.error('Error fetching custom links:', error));
     }
-    // Fungsi untuk menambahkan link ke wadah tertentu (prepend)
+    // Tambahkan link ke wadah tertentu (prepend)
     function addLinkToSection(sectionId, text, url, imgUrl) {
       const container = document.getElementById(sectionId);
       const a = document.createElement('a');
@@ -410,7 +401,7 @@
       a.appendChild(span);
       container.prepend(a);
     }
-    // Fungsi untuk mengambil file "Login" dari GitHub dan menampilkan file upload dari tiap pengguna
+    // Ambil file "Login" dari GitHub dan tampilkan file upload tiap pengguna
     function fetchRegisteredFiles() {
       fetch('https://api.github.com/repos/ScarilyId/mcpatch/contents/Login')
         .then(response => response.json())
@@ -424,12 +415,10 @@
               if (parts.length >= 2) {
                 const user = parts[0].trim();
                 const repo = parts[1].trim();
-                // Buat header untuk pengguna
                 const userHeader = document.createElement('div');
                 userHeader.classList.add('user-header');
                 userHeader.textContent = "Uploaded by " + user;
                 uploadContainer.appendChild(userHeader);
-                // Ambil file dari repository pengguna
                 fetch(`https://api.github.com/repos/${user}/${repo}/contents`)
                   .then(response => response.json())
                   .then(files => {
