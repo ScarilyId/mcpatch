@@ -252,6 +252,32 @@
       font-size: 1.1em;
       padding: 15px;
     }
+    /* Donation Container Styles */
+    .donate-container {
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      margin: 20px auto;
+      color: #333;
+    }
+    .donate-button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background-color: #ff5733;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .donate-button:hover {
+      background-color: #e64a19;
+    }
   </style>
 </head>
 <body>
@@ -311,13 +337,20 @@
       </a>
     </div>
     
-    <!-- Search box untuk upload, ditempatkan di atas area upload -->
+    <!-- Search box untuk upload -->
     <div class="search-container" style="margin: 20px auto; max-width: 500px;">
       <input type="text" id="uploadSearch" placeholder="Cari upload..." style="width: 100%; padding: 8px; font-size: 0.9em; border: 1px solid #ccc; border-radius: 20px; background-color: #eee;" />
     </div>
     
-    <!-- Area untuk menampilkan file upload dari pengguna (berdasarkan file "Login") -->
+    <!-- Area untuk menampilkan file upload dari pengguna -->
     <div id="registeredUploads"></div>
+    
+    <!-- Donation Container -->
+    <div class="donate-container">
+      <h2>Dukung Kami dengan Donasi</h2>
+      <p>Jika Anda merasa konten ini bermanfaat, silakan berdonasi agar kami semakin semangat!</p>
+      <a href="https://sociabuzz.com/_fahmi" class="donate-button" target="_blank">Donasi Sekarang</a>
+    </div>
     
     <footer>
       <p>Create website by @MohFahmiMc</p>
