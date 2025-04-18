@@ -1,1 +1,436 @@
-
+{
+  "Resource_pack": [
+    {
+      "link": "https://mcpedl.com/invisible-item-frame-glow-item-frame/",
+      "nama": "Invisible Item Frame & Glow Item Frame",
+      "fotolink": "https://media.forgecdn.net/avatars/190/611/638022288950268243.png",
+      "deskripsi": "Membuat item frame dan glow frame tak terlihat, ideal untuk dekorasi survival."
+    },
+    {
+      "link": "https://mcpedl.com/invisible-touch-buttons/",
+      "nama": "Invisible Touch Buttons",
+      "fotolink": "https://media.forgecdn.net/avatars/190/615/638022301177822611.png",
+      "deskripsi": "Menyembunyikan tombol sentuh pada layar untuk tampilan lebih bersih di HP."  
+    },
+    {
+      "link": "https://mcpedl.com/ultimate-survival-texture-pack/",
+      "nama": "Ultimate Survival Texture Pack v3.9.7",
+      "fotolink": "https://media.forgecdn.net/avatars/195/123/638029123456789012.png",
+      "deskripsi": "Default edit yang menambah 50 fitur, membuat tampilan lebih jelas dan minimalis."
+    },
+    {
+      "link": "https://mcpedl.com/hunger-points-on-food-names/",
+      "nama": "Item Info+",
+      "fotolink": "https://media.forgecdn.net/avatars/189/222/638011122333445566.png",
+      "deskripsi": "Menampilkan poin kelaparan langsung di nama makanan untuk kemudahan survival."
+    },
+    {
+      "link": "https://mcpedl.com/esp-texture-pack-1-20-for-mcpe-bedrock/",
+      "nama": "ESP Texture Pack",
+      "fotolink": "https://media.forgecdn.net/avatars/185/888/637995554443332211.png",
+      "deskripsi": "Memungkinkan Anda melihat entitas, peti, dan tempat tidur melalui blok—berguna di PvP."
+    },
+    {
+      "link": "https://mcpedl.com/astrax-16x-pvp-texture-pack/",
+      "nama": "Astra 16x PvP Texture Pack",
+      "fotolink": "https://media.forgecdn.net/avatars/188/777/638000111222333444.png",
+      "deskripsi": "Tema luar angkasa biru untuk PvP, ideal untuk Bedwars dan Skywars."
+    },
+    {
+      "link": "https://mcpedl.com/insanity-pvp-texture-pack/",
+      "nama": "Insanity - PvP Texture Pack",
+      "fotolink": "https://media.forgecdn.net/avatars/187/666/637998888777666555.png",
+      "deskripsi": "Tampilan tajam dan kontras tinggi untuk pertempuran cepat survival server."
+    },
+    {
+      "link": "https://mcpedl.com/dynamic-animations/",
+      "nama": "Dynamic Animations",
+      "fotolink": "https://media.forgecdn.net/avatars/186/555/637997777666555444.png",
+      "deskripsi": "Membuat animasi mob lebih halus dan realistis, meningkatkan imersi survival."
+    },
+    {
+      "link": "https://mcpedl.com/the-ty-els-ui-pack/",
+      "nama": "The Ty-el's UI Pack",
+      "fotolink": "https://media.forgecdn.net/avatars/184/444/637996666555444333.png",
+      "deskripsi": "UI vanilla diperbarui dengan efek klik dan panel yang lebih informatif."
+    },
+    {
+      "link": "https://mcpedl.com/faithful-32x32-pack/",
+      "nama": "Faithful 32x PE",
+      "fotolink": "https://media.forgecdn.net/avatars/183/333/637995555444333222.png",
+      "deskripsi": "Versi HD dari tekstur vanilla asli, mudah adaptasi dan ringan untuk survival."
+    },
+    {
+      "link": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-texture-pack",
+      "nama": "Ultramarine Texture Pack",
+      "fotolink": "https://media.forgecdn.net/avatars/200/001/638100000111222333.png",
+      "deskripsi": "Mendukung Render Dragon dengan shader built‑in, kompatibel Bedrock 1.21+."
+    },
+    {
+      "link": "https://resourcepack.net/res/excalibur-resource-pack/",
+      "nama": "Excalibur",
+      "fotolink": "https://resourcepack.net/thumbs/large/excalibur.jpg",
+      "deskripsi": "Tema abad pertengahan dengan tekstur tajam dan ornamen klasik."
+    },
+    {
+      "link": "https://resourcepack.net/res/rotrblocks-resource-pack/",
+      "nama": "rotrBLOCKS",
+      "fotolink": "https://resourcepack.net/thumbs/large/rotrblocks.jpg",
+      "deskripsi": "Upscale vanilla dengan sentuhan realisme, cocok untuk world survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/pixlli-resource-pack/",
+      "nama": "Pixlli",
+      "fotolink": "https://resourcepack.net/thumbs/large/pixlli.jpg",
+      "deskripsi": "Art deco modern yang menyegarkan tampilan Minecraft vanilla."
+    },
+    {
+      "link": "https://resourcepack.net/res/vondoomcraft-resource-pack/",
+      "nama": "vonDoomCraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/vondoomcraft.jpg",
+      "deskripsi": "Tema horor gelap, memperkaya suasana survival di malam hari."
+    },
+    {
+      "link": "https://resourcepack.net/res/mizunos-16-craft-resource-pack/",
+      "nama": "Mizuno’s 16 Craft",
+      "fotolink": "https://resourcepack.net/thumbs/large/mizunos-16-craft.jpg",
+      "deskripsi": "Medieval dengan grafis detail, ideal untuk bangunan kastil di survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/stoneborn-resource-pack/",
+      "nama": "Stoneborn",
+      "fotolink": "https://resourcepack.net/thumbs/large/stoneborn.jpg",
+      "deskripsi": "RPG/Medieval dengan pewarnaan alami dan detail batu-batuan."
+    },
+    {
+      "link": "https://resourcepack.net/res/bare-bones-resource-pack/",
+      "nama": "Bare Bones",
+      "fotolink": "https://resourcepack.net/thumbs/large/bare-bones.jpg",
+      "deskripsi": "Super minimalis dan ringan, sempurna untuk perangkat low‑end."
+    },
+    {
+      "link": "https://resourcepack.net/res/luna-hd-resource-pack/",
+      "nama": "Luna HD",
+      "fotolink": "https://resourcepack.net/thumbs/large/luna-hd.jpg",
+      "deskripsi": "Tekstur HD realistik dengan pencahayaan lembut untuk suasana malam."
+    },
+    {
+      "link": "https://resourcepack.net/res/brixel-resource-pack/",
+      "nama": "Brixel",
+      "fotolink": "https://resourcepack.net/thumbs/large/brixel.jpg",
+      "deskripsi": "Tema kartun bertekstur halus yang menyenangkan untuk survival keluarga."
+    },
+    {
+      "link": "https://resourcepack.net/res/faithful-64x-resource-pack/",
+      "nama": "Faithful 64x PE",
+      "fotolink": "https://resourcepack.net/thumbs/large/faithful-64x.jpg",
+      "deskripsi": "Lebih HD dari versi 32x, tetap vanilla feel dengan detail ekstra."
+    },
+    {
+      "link": "https://resourcepack.net/res/soartex-fanver-resource-pack/",
+      "nama": "Soartex Fanver",
+      "fotolink": "https://resourcepack.net/thumbs/large/soartex-fanver.jpg",
+      "deskripsi": "Tampilan halus dan bersih, cocok untuk server survival kustom."
+    },
+    {
+      "link": "https://resourcepack.net/res/chroma-hills-resource-pack/",
+      "nama": "Chroma Hills",
+      "fotolink": "https://resourcepack.net/thumbs/large/chroma-hills.jpg",
+      "deskripsi": "RPG pack dengan nuansa cerah dan detail karakteristik."
+    },
+    {
+      "link": "https://resourcepack.net/res/john-smith-legacy-resource-pack/",
+      "nama": "John Smith Legacy",
+      "fotolink": "https://resourcepack.net/thumbs/large/john-smith-legacy.jpg",
+      "deskripsi": "Medieval klasik, sering dipakai di server roleplay survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/dokucraft-light-resource-pack/",
+      "nama": "Dokucraft Light",
+      "fotolink": "https://resourcepack.net/thumbs/large/dokucraft-light.jpg",
+      "deskripsi": "Tema terang dari seri Dokucraft, cocok untuk bangunan modern."
+    },
+    {
+      "link": "https://resourcepack.net/res/conquest-resource-pack/",
+      "nama": "Conquest",
+      "fotolink": "https://resourcepack.net/thumbs/large/conquest.jpg",
+      "deskripsi": "Detail ornamen tinggi untuk arsitektur medieval survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/modernarch-resource-pack/",
+      "nama": "ModernArch",
+      "fotolink": "https://resourcepack.net/thumbs/large/modernarch.jpg",
+      "deskripsi": "Minimalis modern dengan garis bersih untuk konstruksi survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/vattic-realistic-resource-pack/",
+      "nama": "Vattic Realistic",
+      "fotolink": "https://resourcepack.net/thumbs/large/vattic-realistic.jpg",
+      "deskripsi": "Perpaduan realisme dan vanilla feel, cocok untuk suasana natural."
+    },
+    {
+      "link": "https://resourcepack.net/res/purebdcraft-resource-pack/",
+      "nama": "PureBDcraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/purebdcraft.jpg",
+      "deskripsi": "Stilistik komik-book, menambah kesan ringan pada survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/painterly-pack-resource-pack/",
+      "nama": "Painterly Pack",
+      "fotolink": "https://resourcepack.net/thumbs/large/painterly-pack.jpg",
+      "deskripsi": "Beragam varian gaya: realistik, medieval, modern, memudahkan adaptasi."
+    },
+    {
+      "link": "https://resourcepack.net/res/realistico-resource-pack/",
+      "nama": "Realistico",
+      "fotolink": "https://resourcepack.net/thumbs/large/realistico.jpg",
+      "deskripsi": "Realisme tinggi dengan detail halus, menambah tantangan survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/lithos-core-resource-pack/",
+      "nama": "Lithos Core",
+      "fotolink": "https://resourcepack.net/thumbs/large/lithos-core.jpg",
+      "deskripsi": "Tetap vanilla tapi lebih tajam dan bersih."
+    },
+    {
+      "link": "https://resourcepack.net/res/trulyvanilla-resource-pack/",
+      "nama": "TrulyVanilla",
+      "fotolink": "https://resourcepack.net/thumbs/large/trulyvanilla.jpg",
+      "deskripsi": "Perbaikan tekstur vanilla tanpa mengubah gaya aslinya."
+    },
+    {
+      "link": "https://resourcepack.net/res/fused-vanilla-resource-pack/",
+      "nama": "Fused Vanilla",
+      "fotolink": "https://resourcepack.net/thumbs/large/fused-vanilla.jpg",
+      "deskripsi": "Versi bersih vanilla dengan kontras sedikit lebih tinggi."
+    },
+    {
+      "link": "https://resourcepack.net/res/better-default-resource-pack/",
+      "nama": "Better Default",
+      "fotolink": "https://resourcepack.net/thumbs/large/better-default.jpg",
+      "deskripsi": "Mengoptimalkan tekstur vanilla untuk visibilitas lebih baik."
+    },
+    {
+      "link": "https://resourcepack.net/res/faithful-pe-resource-pack/",
+      "nama": "Faithful PE",
+      "fotolink": "https://resourcepack.net/thumbs/large/faithful-pe.jpg",
+      "deskripsi": "Adaptasi Faithful khusus untuk Bedrock dengan resolusi 32x."
+    },
+    {
+      "link": "https://resourcepack.net/res/flow-hd-resource-pack/",
+      "nama": "Flow’s HD",
+      "fotolink": "https://resourcepack.net/thumbs/large/flows-hd.jpg",
+      "deskripsi": "Detail air dan cahaya diperhalus untuk tampilan yang lebih hidup."
+    },
+    {
+      "link": "https://resourcepack.net/res/chocapic13-resource-pack/",
+      "nama": "Chocapic13",
+      "fotolink": "https://resourcepack.net/thumbs/large/chocapic13.jpg",
+      "deskripsi": "Realistis ringan dengan warna lembut, cocok untuk survival klasik."
+    },
+    {
+      "link": "https://resourcepack.net/res/summerfields-resource-pack/",
+      "nama": "SummerFields",
+      "fotolink": "https://resourcepack.net/thumbs/large/summerfields.jpg",
+      "deskripsi": "Palet warna cerah musim panas, menambah keceriaan dunia survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/birch-textures-resource-pack/",
+      "nama": "Birch Textures",
+      "fotolink": "https://resourcepack.net/thumbs/large/birch-textures.jpg",
+      "deskripsi": "Tampilan ala ilustrasi kayu birch, cocok untuk bangunan kayu."
+    },
+    {
+      "link": "https://resourcepack.net/res/maplecraft-resource-pack/",
+      "nama": "MapleCraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/maplecraft.jpg",
+      "deskripsi": "Tema hangat dedaunan musim gugur, pas untuk eksplorasi survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/candycraft-resource-pack/",
+      "nama": "CandyCraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/candycraft.jpg",
+      "deskripsi": "Nuansa manis dan pastel, menyenangkan terutama di server anak-anak."
+    },
+    {
+      "link": "https://resourcepack.net/res/cinema-craft-resource-pack/",
+      "nama": "Cinema Craft",
+      "fotolink": "https://resourcepack.net/thumbs/large/cinema-craft.jpg",
+      "deskripsi": "Palet gelap dan kontras tinggi, seperti adegan sinematik."
+    },
+    {
+      "link": "https://resourcepack.net/res/futurex-resource-pack/",
+      "nama": "Futurex",
+      "fotolink": "https://resourcepack.net/thumbs/large/futurex.jpg",
+      "deskripsi": "Futuristik dengan neon dan tekstur metalik, cocok untuk survival sci-fi."
+    },
+    {
+      "link": "https://resourcepack.net/res/whitecraft-resource-pack/",
+      "nama": "WhiteCraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/whitecraft.jpg",
+      "deskripsi": "Minimalis monokrom, memudahkan fokus pada gameplay."
+    },
+    {
+      "link": "https://resourcepack.net/res/pixel-reality-resource-pack/",
+      "nama": "Pixel Reality",
+      "fotolink": "https://resourcepack.net/thumbs/large/pixel-reality.jpg",
+      "deskripsi": "Tampilan retro pixel art, menambah nuansa nostalgia."
+    },
+    {
+      "link": "https://resourcepack.net/res/delicacycraft-resource-pack/",
+      "nama": "DelicacyCraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/delicacycraft.jpg",
+      "deskripsi": "Detail makanan dan blok makanan diolah dengan realistis."
+    },
+    {
+      "link": "https://resourcepack.net/res/oscuro-realistico-reverted/",
+      "nama": "Oscuro’s Realistico Reverted",
+      "fotolink": "https://resourcepack.net/thumbs/large/oscuro-realistico.jpg",
+      "deskripsi": "Versi Realistico klasik tanpa modifikasi modern."
+    },
+    {
+      "link": "https://resourcepack.net/res/hybrid-resource-pack/",
+      "nama": "Hybrid",
+      "fotolink": "https://resourcepack.net/thumbs/large/hybrid.jpg",
+      "deskripsi": "Campuran gaya komik dan realistik untuk nuansa unik."
+    },
+    {
+      "link": "https://resourcepack.net/res/orchids-imperium-resource-pack/",
+      "nama": "Orchid’s Imperium",
+      "fotolink": "https://resourcepack.net/thumbs/large/orchids-imperium.jpg",
+      "deskripsi": "Detail ornamens khas kerajaan, bagus untuk survival roleplay."
+    },
+    {
+      "link": "https://resourcepack.net/res/r3d-realistic-resource-pack/",
+      "nama": "R3D Realistic",
+      "fotolink": "https://resourcepack.net/thumbs/large/r3d-realistic.jpg",
+      "deskripsi": "Realisme modern dengan detail refleksi dan bayangan."
+    },
+    {
+      "link": "https://resourcepack.net/res/vanillarealism-resource-pack/",
+      "nama": "VanillaRealism",
+      "fotolink": "https://resourcepack.net/thumbs/large/vanillarealism.jpg",
+      "deskripsi": "Perpaduan vanilla dan realis untuk kenyamanan mata."
+    },
+    {
+      "link": "https://resourcepack.net/res/mystic-realism-resource-pack/",
+      "nama": "Mystic Realism",
+      "fotolink": "https://resourcepack.net/thumbs/large/mystic-realism.jpg",
+      "deskripsi": "Atmosfer mistis dengan kabut halus dan pewarnaan lembut."
+    },
+    {
+      "link": "https://resourcepack.net/res/unreal-world-resource-pack/",
+      "nama": "Unreal World",
+      "fotolink": "https://resourcepack.net/thumbs/large/unreal-world.jpg",
+      "deskripsi": "Suasana magis dan fantasi, menambah rasa petualangan."
+    },
+    {
+      "link": "https://resourcepack.net/res/clean-realism-resource-pack/",
+      "nama": "Clean Realism",
+      "fotolink": "https://resourcepack.net/thumbs/large/clean-realism.jpg",
+      "deskripsi": "Realisme tanpa kekacauan visual, optimal untuk survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/greenfields-resource-pack/",
+      "nama": "GreenFields",
+      "fotolink": "https://resourcepack.net/thumbs/large/greenfields.jpg",
+      "deskripsi": "Warna hijau subur dan detail dedaunan realistis."
+    },
+    {
+      "link": "https://resourcepack.net/res/pale-realm-resource-pack/",
+      "nama": "Pale Realm",
+      "fotolink": "https://resourcepack.net/thumbs/large/pale-realm.jpg",
+      "deskripsi": "Palet pastel pucat untuk suasana dunia alternatif."
+    },
+    {
+      "link": "https://resourcepack.net/res/starterpack-resource-pack/",
+      "nama": "StarterPack",
+      "fotolink": "https://resourcepack.net/thumbs/large/starterpack.jpg",
+      "deskripsi": "Kumpulan perbaikan vanilla ringan untuk pemula."
+    },
+    {
+      "link": "https://resourcepack.net/res/animate-pack-resource-pack/",
+      "nama": "Animate Pack",
+      "fotolink": "https://resourcepack.net/thumbs/large/animate-pack.jpg",
+      "deskripsi": "Menyuntikkan animasi halus pada objek statis."
+    },
+    {
+      "link": "https://resourcepack.net/res/game-of-blocks-resource-pack/",
+      "nama": "Game of Blocks",
+      "fotolink": "https://resourcepack.net/thumbs/large/game-of-blocks.jpg",
+      "deskripsi": "Tema epik ala kerajaan fiksi, memperkuat nuansa survival."
+    },
+    {
+      "link": "https://resourcepack.net/res/undonetexturepack-resource-pack/",
+      "nama": "UndoneTexturePack",
+      "fotolink": "https://resourcepack.net/thumbs/large/undonetexturepack.jpg",
+      "deskripsi": "Gaya sketsa belum selesai, estetik unik untuk kreator."
+    },
+    {
+      "link": "https://resourcepack.net/res/olddays-resource-pack/",
+      "nama": "OldDays",
+      "fotolink": "https://resourcepack.net/thumbs/large/olddays.jpg",
+      "deskripsi": "Nuansa retro ala Minecraft awal, nostalgia hardcore."
+    },
+    {
+      "link": "https://resourcepack.net/res/high-contrast-resource-pack/",
+      "nama": "High Contrast",
+      "fotolink": "https://resourcepack.net/thumbs/large/high-contrast.jpg",
+      "deskripsi": "Memaksimalkan keterbacaan blok di kondisi cahaya apa pun."
+    },
+    {
+      "link": "https://resourcepack.net/res/default-plus-gui-resource-pack/",
+      "nama": "Default+ GUI",
+      "fotolink": "https://resourcepack.net/thumbs/large/default-plus-gui.jpg",
+      "deskripsi": "Perbaikan antarmuka vanilla tanpa mengganggu tekstur."
+    },
+    {
+      "link": "https://resourcepack.net/res/beyond-belief-resource-pack/",
+      "nama": "Beyond Belief",
+      "fotolink": "https://resourcepack.net/thumbs/large/beyond-belief.jpg",
+      "deskripsi": "Detail fantastis dan ornamen magis ala petualangan epik."
+    },
+    {
+      "link": "https://resourcepack.net/res/grid-rs-resource-pack/",
+      "nama": "Grid RS",
+      "fotolink": "https://resourcepack.net/thumbs/large/grid-rs.jpg",
+      "deskripsi": "Tema industri modern dengan pola grid pada blok dan item."
+    },
+    {
+      "link": "https://resourcepack.net/res/alpha-universal-resource-pack/",
+      "nama": "Alpha Universal",
+      "fotolink": "https://resourcepack.net/thumbs/large/alpha-universal.jpg",
+      "deskripsi": "Memperkuat tampilan vanilla dengan pewarnaan lebih tajam."
+    },
+    {
+      "link": "https://resourcepack.net/res/phantom-music-resource-pack/",
+      "nama": "Phantom Music",
+      "fotolink": "https://resourcepack.net/thumbs/large/phantom-music.jpg",
+      "deskripsi": "Menambahkan notasi not untuk sumber suara, meningkatkan imersi."
+    },
+    {
+      "link": "https://resourcepack.net/res/auroracraft-resource-pack/",
+      "nama": "AuroraCraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/auroracraft.jpg",
+      "deskripsi": "Palet dingin ala aurora, bagus untuk eksplorasi kutub."
+    },
+    {
+      "link": "https://resourcepack.net/res/panamacraft-resource-pack/",
+      "nama": "PanamaCraft",
+      "fotolink": "https://resourcepack.net/thumbs/large/panamacraft.jpg",
+      "deskripsi": "Gaya estetik tropis dengan detail kayu dan daun palem."
+    },
+    {
+      "link": "https://resourcepack.net/res/autumnity-resource-pack/",
+      "nama": "Autumnity",
+      "fotolink": "https://resourcepack.net/thumbs/large/autumnity.jpg",
+      "deskripsi": "Musim gugur lengkap dengan dedaunan oranye dan kabut halus."
+    },
+    {
+      "link": "https://resourcepack.net/res/hellscape-resource-pack/",
+      "nama": "Hellscape",
+      "fotolink": "https://resourcepack.net/thumbs/large/hellscape.jpg",
+      "deskripsi": "Tema neraka untuk Nether, menambah kesan menakutkan."
+    },
+    {
+    
